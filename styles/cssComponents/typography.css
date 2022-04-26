@@ -1,0 +1,29 @@
+@layer components {
+  .h1 {
+    @apply text-4xl;
+  }
+
+  .h2 {
+    @apply text-2xl;
+  }
+
+  .h3 {
+    @apply text-xl;
+  }
+
+  .h4 {
+    @apply text-lg;
+  }
+
+  .sub {
+    @apply text-gray-500;
+  }
+
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .sub {
+    font-weight: theme("fontWeight.semibold");
+  }
+}

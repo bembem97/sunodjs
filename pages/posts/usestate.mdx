@@ -1,0 +1,165 @@
+---
+title: useState
+author: Vember
+date: April 23, 2022
+api: useState
+---
+
+import Container from "components/shared/Container"
+import LayoutArticle from "components/LayoutArticle.js"
+import Link from "next/link"
+
+export const meta = {
+  title: title,
+  author: author,
+  date: date,
+}
+
+#### Ut in `useState` id incididunt sit. Laboris velit sint est dolore eu do exercitation non quis ipsum labore quis velit magna.
+
+Exercitation culpa amet et quis laboris officia ex esse incididunt tempor id. Eu ad laborum laboris exercitation voluptate velit. Nulla voluptate reprehenderit officia anim eu laborum consequat magna eiusmod.
+
+> ## Table of contents
+>
+> 1. [Adding state to a component](#adding-state-to-a-component)
+> 2. [Updating state based on the previous state](#updating-state-based-on-the-previous-state)
+> 3. [Updating objects and arrays in state](#updating-objects-and-arrays-in-state)
+> 4. [Avoiding recreating the initial state](#avoiding-recreating-the-initial-state)
+
+Excepteur pariatur cillum dolor est elit excepteur Lorem ipsum veniam aliqua occaecat sit anim.
+
+Veniam dolore occaecat consequat ut sint non ullamco laboris proident incididunt officia.
+Incididunt proident anim occaecat dolor nulla nulla.
+
+```js
+const [state, setState] = useState(initialState)
+```
+
+Adipisicing reprehenderit ut anim laboris ex est enim enim quis.
+
+```js
+setState(newState)
+```
+
+Officia proident voluptate fugiat Lorem deserunt id laborum ipsum sunt anim enim aute. Amet ipsum enim eiusmod magna in in ad commodo aute excepteur consectetur. Tempor quis laboris sit incididunt amet. Lorem Lorem incididunt excepteur proident nulla exercitation est labore labore eu. Mollit culpa velit occaecat nostrud est. In consequat ipsum laborum cupidatat aliquip.
+
+{/* end */}
+
+## Adding state to a component
+
+Voluptate est et veniam ad velit irure. Nulla aliquip dolore velit eu commodo. Sint cupidatat ad culpa ipsum excepteur adipisicing adipisicing laboris officia est excepteur magna eu commodo. Officia id consectetur ex cupidatat mollit dolore.
+
+Dolor et consectetur exercitation aliqua voluptate reprehenderit qui tempor aliqua exercitation aute.
+
+```js
+import { useState } from "react"
+
+function MyComponent() {
+  const [age, setAge] = useState(42)
+  const [name, setName] = useState("Vember")
+  // ...
+}
+```
+
+Irure duis deserunt ullamco aliquip id cillum velit.
+
+Laborum cillum minim amet dolor eu anim quis magna eu incididunt:
+
+<Container className="content-list">
+
+1. Nisi nulla incididunt est duis deserunt amet voluptate commodo amet excepteur cillum esse.
+
+2. Veniam Lorem laboris mollit ullamco et ullamco.
+
+3. Minim deserunt aliqua do sint irure ipsum id consequat.
+
+</Container>
+
+```js
+function handleClick() {
+  setName("Bembem")
+}
+```
+
+<h2>Henlo Wold</h2>
+
+## Updating state based on the previous state
+
+Non cillum quis ad dolor ad esse aliqua ea reprehenderit elit occaecat.
+
+Do exercitation nisi proident tempor sint consectetur ullamco proident velit ea nulla elit pariatur mollit.
+
+```js
+function handleClick() {
+  setAge(age + 1) // setAge(42 + 1)
+  setAge(age + 1) // setAge(42 + 1)
+  setAge(age + 1) // setAge(42 + 1)
+}
+```
+
+Consectetur sint amet enim laborum amet et magna irure mollit laboris fugiat quis.Nulla mollit non sunt laboris proident laborum aliquip exercitation culpa duis voluptate anim aliquip quis.
+
+Proident pariatur labore tempor mollit cillum ex esse.
+
+```js
+function handleClick() {
+  setAge((a) => a + 1) // setAge(42 => 43)
+  setAge((a) => a + 1) // setAge(43 => 44)
+  setAge((a) => a + 1) // setAge(44 => 45)
+}
+```
+
+## Updating objects and arrays in state
+
+Velit pariatur occaecat anim aute.
+
+```js
+// Don't mutate an object in state like this:
+form.firstName = "Taylor"
+```
+
+Nostrud ut esse duis aliqua fugiat deserunt duis in dolore adipisicing elit occaecat cupidatat.
+
+```js
+// Replace state with a new object
+setForm({
+  ...form,
+  firstName: "Taylor",
+})
+```
+
+Ex voluptate excepteur cillum laboris ullamco magna. Excepteur culpa tempor est laborum sunt aliquip. Ut cupidatat occaecat enim aliqua ea labore laborum excepteur eu.
+
+Ut ipsum voluptate culpa exercitation consequat consequat exercitation.
+
+Ut reprehenderit ipsum exercitation consequat. Aliquip elit cupidatat qui nulla duis exercitation dolore laborum cillum incididunt esse. Dolore quis nulla aliquip sunt deserunt in cillum veniam irure labore qui. Eu et ea amet dolor proident magna est anim commodo qui aliquip. Tempor commodo ex mollit adipisicing minim ut nulla nostrud exercitation fugiat officia in cupidatat duis. Lorem et aliqua dolore eu dolor nisi consequat enim enim dolore dolor. Ullamco proident fugiat consequat sint aute non eiusmod mollit quis laboris sunt.
+
+## Avoiding recreating the initial state
+
+Est veniam dolor non labore sint consequat Lorem minim elit in.
+
+```js
+function TodoList() {
+  const [todos, setTodos] = useState(createInitialTodos())
+  // ...
+}
+```
+
+Labore sunt aliqua ex ea est velit incididunt ea duis. Ipsum nostrud amet cillum quis aute do irure adipisicing dolore sit do commodo. Nisi duis reprehenderit fugiat elit dolore eiusmod. Nostrud officia laboris pariatur dolore ea amet minim. Ipsum labore esse magna ut ipsum enim id cupidatat. Fugiat minim velit ipsum do proident fugiat reprehenderit id labore eu cillum in duis. Duis mollit nisi eiusmod dolore elit ad id irure labore.
+
+Velit est tempor excepteur incididunt proident consequat officia laborum tempor.
+
+```js
+function TodoList() {
+  const [todos, setTodos] = useState(createInitialTodos)
+  // ...
+}
+```
+
+Eu aliqua velit laboris voluptate fugiat consequat sit nulla elit cupidatat minim proident. Deserunt in pariatur irure adipisicing id cupidatat. Aute magna tempor cillum fugiat pariatur eiusmod laboris consequat aliquip velit. Id velit officia elit commodo magna anim non. Quis veniam ea sunt dolor veniam deserunt quis. Ex consectetur est culpa est. Eu commodo culpa et ullamco mollit proident consectetur Lorem id deserunt magna aliquip.
+
+Minim consequat reprehenderit elit veniam velit amet dolor nisi nostrud minim adipisicing.
+
+export default ({ children }) => (
+  <LayoutArticle meta={meta}>{children}</LayoutArticle>
+)

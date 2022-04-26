@@ -1,0 +1,21 @@
+@layer components {
+  .alert {
+    @apply p-3 rounded-r shadow border-l-4;
+
+    &-success {
+      @apply bg-green-200 text-green-900 border-l-green-900;
+    }
+
+    &-info {
+      @apply bg-blue-200 text-blue-900 border-l-blue-900;
+    }
+
+    &-error {
+      @apply bg-red-200 text-red-900 border-l-red-900;
+    }
+
+    &-warning {
+      @apply bg-amber-200 text-amber-900 border-l-amber-900;
+    }
+  }
+}

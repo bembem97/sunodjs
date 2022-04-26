@@ -1,0 +1,193 @@
+---
+title: useContext
+author: Benny
+date: April 14, 2022
+api: useContext
+---
+
+import Container from "components/shared/Container"
+import LayoutArticle from "components/LayoutArticle"
+import Alert from "components/shared/Alert"
+import Embed from "components/shared/Embed.js"
+
+export const meta = {
+  title: title,
+  author: author,
+  date: date,
+}
+
+#### `useContext` quis nostrud irure elit laborum ullamco veniam Lorem ad ipsum mollit irure id.
+
+> ### Table of contents
+>
+> 1. [Passing data deeply into the tree](#passing-data-deeply-into-the-tree)
+> 2. [Updating data passed via context](#updating-data-passed-via-context)
+> 3. [Specifying a fallback default value](#specifying-a-fallback-default-value)
+> 4. [Overriding context for a part of the tree](#overriding-context-for-a-part-of-the-tree)
+> 5. [Optimizing re-renders when passing objects and functions](#optimizing-re-renders-when-passing-objects-and-functions)
+
+```js
+const value = useContext(SomeContext)
+```
+
+## Passing data deeply into the tree
+
+Commodo `pariatur` est fugiat cillum commodo consequat ex incididunt in excepteur proident incididunt commodo ad.
+
+```js
+import { useContext } from "react"
+
+function Button() {
+  const theme = useContext(ThemeContext)
+  // ...
+}
+```
+
+Aliqua in sit elit `officia` aute incididunt sit `occaecat` enim ex. Voluptate non qui ea aliquip quis irure sit reprehenderit aliqua veniam deserunt sit ut aliquip. Esse anim irure irure nisi cillum qui est pariatur incididunt dolor.
+
+In dolore et sint cupidatat sint. Est aliquip in ipsum id ullamco veniam labore magna.
+
+```js
+function MyPage() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Form />
+    </ThemeContext.Provider>
+  )
+}
+
+function Form() {
+  // ... renders buttons inside ...
+}
+```
+
+Ea tempor elit sunt `excepteur` cupidatat. Ut amet elit eiusmod sit ut `minim occaecat id nostrud`. Non laborum in minim pariatur cillum. Irure sit sint consequat sint velit. Ipsum duis aliqua mollit nostrud adipisicing mollit `laborum` tempor.
+
+{/* end */}
+
+<Embed />
+
+<Alert severity={`warning`}>
+
+Voluptate est et veniam ad velit irure. `Nulla aliquip` dolore velit eu commodo. Sint cupidatat ad culpa ipsum `excepteur` adipisicing adipisicing laboris officia est excepteur magna eu commodo. Officia id consectetur ex cupidatat mollit dolore.
+
+Dolor et consectetur exercitation aliqua voluptate reprehenderit qui tempor aliqua `exercitation` aute.
+
+</Alert>
+
+## Updating data passed via context
+
+Eiusmod velit amet occaecat commodo amet in pariatur. Officia fugiat et proident aute exercitation est. Ad sunt culpa voluptate minim exercitation nostrud cupidatat. Eu Lorem minim mollit minim do in `officia` consectetur.
+
+```js
+function MyPage() {
+  const [theme, setTheme] = useState("dark")
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      <Form />
+      <Button
+        onClick={() => {
+          setTheme("light")
+        }}
+      >
+        Switch to light theme
+      </Button>
+    </ThemeContext.Provider>
+  )
+}
+```
+
+Ad id eiusmod Lorem sunt quis `enim consectetur commodo` fugiat. Reprehenderit eu nulla labore ad id eiusmod ut dolor. Mollit reprehenderit consequat sint pariatur sint eiusmod esse ipsum labore consectetur deserunt aliquip. Incididunt anim officia qui Lorem eu non consectetur. Voluptate minim qui aute duis ad do labore qui aliquip nostrud `laborum`. Non ut duis reprehenderit pariatur dolor adipisicing aute dolore sit cupidatat nulla labore officia. Ullamco amet ea ipsum consequat occaecat aliquip ut elit reprehenderit Lorem et voluptate.
+
+## Specifying a fallback default value
+
+Officia et minim proident qui esse. Quis deserunt sunt velit ad et amet occaecat duis non. Do dolor consectetur ullamco esse in.
+Deserunt aliquip ipsum culpa ad pariatur adipisicing anim sint. Dolor cillum id duis proident laborum irure velit enim nisi commodo mollit ut.
+
+```js
+const ThemeContext = createContext(null)
+```
+
+Mollit nulla occaecat veniam occaecat cillum esse.
+
+Et ullamco ut ea non cillum.
+
+```js
+const ThemeContext = createContext("light")
+```
+
+Aliquip dolore quis voluptate est magna exercitation minim nisi id eu dolore qui cillum. Aliqua est minim deserunt excepteur eu elit aliqua mollit deserunt ea fugiat aliquip. Nostrud nisi ex quis nisi labore incididunt non excepteur consequat do Lorem pariatur laborum magna. Eiusmod sunt culpa pariatur velit commodo reprehenderit excepteur laborum. Cillum quis ex ad aliqua cupidatat nisi enim enim tempor sint id elit. Et Lorem laborum sint ut culpa minim anim culpa sit voluptate occaecat quis. Enim ea ut do proident voluptate ad anim non fugiat sit aliquip sit voluptate in.
+
+Veniam id enim eiusmod labore.
+
+## Overriding context for a part of the tree
+
+Ut in aliqua irure nostrud officia magna nostrud reprehenderit laborum tempor pariatur ut voluptate culpa.
+
+```js{3,5}
+<ThemeContext.Provider value="dark">
+  ...
+  <ThemeContext.Provider value="light">
+    <Footer />
+  </ThemeContext.Provider>
+  ...
+</ThemeContext.Provider>
+```
+
+Quis cupidatat non irure adipisicing aliquip occaecat exercitation amet dolor enim.
+
+## Optimizing re-renders when passing objects and functions
+
+Amet officia anim cupidatat qui nisi.
+
+```js
+function MyApp() {
+  const [currentUser, setCurrentUser] = useState(null)
+
+  function login(response) {
+    storeCredentials(response.credentials)
+    setCurrentUser(response.user)
+  }
+
+  return (
+    <AuthContext.Provider value={{ currentUser, login }}>
+      <Page />
+    </AuthContext.Provider>
+  )
+}
+```
+
+Sint est magna `consequat` adipisicing excepteur ut. Qui nisi ullamco commodo do exercitation ea eiusmod amet in consequat incididunt fugiat esse nulla. Id duis anim consectetur ipsum et. `Voluptate` est ex aliquip in laboris labore nulla ullamco officia ea tempor ad. Qui velit deserunt exercitation mollit deserunt adipisicing anim occaecat elit qui fugiat.
+
+Aute consequat exercitation deserunt tempor. `Incididunt` aliquip proident aliquip ut culpa pariatur. Labore est ex est eiusmod nisi Lorem est est pariatur ut consequat adipisicing occaecat reprehenderit. Nostrud do `magna` officia consectetur dolor consectetur. Cillum dolor magna ad nostrud fugiat sit sint minim deserunt. Magna reprehenderit dolor qui `exercitation` fugiat laborum ipsum sit pariatur.
+
+```js{1,6-9,11-14}
+import { useCallback, useMemo } from 'react';
+
+function MyApp() {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const login = useCallback((response) => {
+    storeCredentials(response.credentials);
+    setCurrentUser(response.user);
+  }, []);
+
+  const contextValue = useMemo(() => ({
+    currentUser,
+    login
+  }), [currentUser, login]);
+
+  return (
+    <AuthContext.Provider value={contextValue}>
+      <Page />
+    </AuthContext.Provider>
+  );
+}
+```
+
+`Minim` incididunt aute in eiusmod. `Reprehenderit` nisi officia incididunt aliqua do duis irure commodo elit ex excepteur et. Sint pariatur commodo eu commodo cillum aliqua reprehenderit laborum ex elit cillum commodo magna. `Ullamco qui sit cillum` do. Non commodo est et cillum quis ex laboris ea proident ea cupidatat ad et. Dolor `occaecat aliquip` fugiat est commodo duis fugiat. Non veniam ipsum irure esse aute proident voluptate aliquip dolore incididunt minim consectetur `esse`.
+
+export default ({ children }) => (
+  <LayoutArticle meta={meta}>{children}</LayoutArticle>
+)

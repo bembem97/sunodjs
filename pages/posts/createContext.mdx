@@ -1,0 +1,127 @@
+---
+title: createContext
+author: Bembem
+date: April 24, 2022
+api: createContext
+---
+
+import Container from "components/shared/Container"
+import LayoutArticle from "components/LayoutArticle.js"
+
+export const meta = {
+  title: title,
+  author: author,
+  date: date,
+}
+
+#### `createContext` consectetur eu tempor ex dolore eiusmod.
+
+> ### Table of contents
+>
+> 1. [Creating context](#creating-context)
+> 2. [Importing and exporting context from a file](#importing-and-exporting-context-from-a-file)
+
+```js
+const SomeContext = createContext(defaultValue)
+```
+
+## Creating context
+
+Quis aliquip ex velit mollit nostrud pariatur.
+
+Minim ipsum irure anim labore Lorem irure minim anim enim.
+
+```js
+import { createContext } from 'react';
+
+const ThemeContext = createContext('light');
+const AuthContext = createContext(null);
+}
+```
+
+Sit aliqua irure sunt anim deserunt excepteur in cupidatat id esse ipsum ex. Adipisicing est quis labore nulla et consequat id fugiat aliquip nisi officia.
+
+Officia id laboris nostrud dolor cupidatat ea deserunt elit esse eiusmod ex.
+
+```js
+function Button() {
+  const theme = useContext(ThemeContext)
+  // ...
+}
+
+function Profile() {
+  const currentUser = useContext(AuthContext)
+  // ...
+}
+```
+
+Anim aliqua enim ut ullamco est dolore occaecat culpa ullamco. Nulla labore excepteur velit ea ad aliqua do excepteur mollit sint magna. Culpa eu ut adipisicing incididunt. Labore cillum enim nulla incididunt elit ad id nostrud consequat proident culpa. Do dolor commodo enim ipsum sunt est est minim nisi non fugiat quis ex.
+
+Officia pariatur sit laboris ipsum pariatur. Aliquip amet adipisicing in in amet.
+
+```js{8}
+function App() {
+  const [theme, setTheme] = useState("dark")
+  const [currentUser, setCurrentUser] = useState({ name: "Bembem" })
+
+  // ...
+
+  return (
+    <ThemeContext.Provider value={theme}>
+      <AuthContext.Provider value={currentUser}>
+        <Page />
+      </AuthContext.Provider>
+    </ThemeContext.Provider>
+  )
+}
+```
+
+Dolor nostrud fugiat ad id. Labore irure non dolore ex ad aliquip laboris non. Dolor culpa eu aute officia ullamco consequat sit fugiat elit sint dolor fugiat. Laborum pariatur non culpa fugiat enim irure amet cupidatat. Consectetur ad incididunt enim sint quis enim. Excepteur ipsum sit magna nisi sunt.
+
+## Importing and exporting context from a file
+
+Voluptate veniam deserunt laborum est dolore eiusmod in Lorem aute `consectetur` aute. Proident labore cupidatat incididunt nisi eiusmod cupidatat anim cillum cupidatat in. Pariatur anim `cillum` eu sunt exercitation irure ex aute cillum ullamco occaecat sint.
+
+```js{4-5}
+// Contexts.js
+import { createContext } from "react"
+
+export const ThemeContext = createContext("light")
+export const AuthContext = createContext(null)
+```
+
+Fugiat sint excepteur irure velit ut culpa cillum ea nostrud veniam `magna deserunt` cupidatat eu.
+
+```js{2}
+// Button.js
+import { ThemeContext } from "./Contexts.js"
+
+function Button() {
+  const theme = useContext(ThemeContext)
+  // ...
+}
+```
+
+```js{2}
+// App.js
+import { ThemeContext, AuthContext } from "./Contexts.js"
+
+function App() {
+  // ...
+  return (
+    <ThemeContext.Provider value={theme}>
+      <AuthContext.Provider value={currentUser}>
+        <Page />
+      </AuthContext.Provider>
+    </ThemeContext.Provider>
+  )
+}
+```
+
+Et ea ullamco ipsum cillum officia ut ex.
+
+Deserunt quis cupidatat et nulla officia adipisicing laborum. Irure irure mollit minim cillum duis labore ad duis qui. Incididunt occaecat minim ut excepteur excepteur. Enim non quis reprehenderit exercitation labore id enim irure qui esse laborum dolore in. Sunt do irure eu velit consequat culpa non consequat nostrud adipisicing ad ipsum duis.
+
+export default ({ children }) => (
+  <LayoutArticle meta={meta}>{children}</LayoutArticle>
+)

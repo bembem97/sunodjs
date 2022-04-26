@@ -1,0 +1,87 @@
+/* BASE */
+@import "tailwindcss/base";
+@import "./base.css";
+
+/* COMPONENTS */
+@import "tailwindcss/components";
+@import "./components.css";
+
+/* UTILITIES */
+@import "tailwindcss/utilities";
+
+/* SYNTAX HIGHLIGHTING STYLES */
+code.language-js {
+  width: max-content;
+  min-width: 100%;
+  display: block;
+
+  & span.remark-highlight-code-line {
+    background-color: theme("colors.zinc.600");
+    display: block;
+    width: 100%;
+  }
+}
+
+/* BLOG ARTICLE STYLES */
+article {
+  counter-reset: section;
+
+  code {
+    background-color: theme("colors.zinc.300");
+    padding: 0 2px;
+  }
+
+  & > .h2 {
+    counter-reset: subsection;
+
+    &::before {
+      counter-increment: section;
+      content: counter(section) ". ";
+    }
+  }
+
+  & > .h3 {
+    &::before {
+      counter-increment: subsection;
+      content: counter(section) "." counter(subsection) " ";
+    }
+  }
+
+  & .table-of-contents {
+    background-color: theme("colors.gray.300");
+    border-left: theme("borderWidth.8") solid theme("colors.gray.900");
+    padding: theme("padding.4") theme("padding.4") theme("padding.4")
+      theme("padding.6");
+
+    & ol {
+      padding-left: theme("padding.5");
+      counter-reset: toc;
+
+      & li {
+        &::before {
+          counter-increment: toc;
+          content: counters(toc, ".") ". ";
+        }
+      }
+
+      & ul {
+        padding-left: theme("padding.5");
+      }
+    }
+  }
+}
+
+article ul,
+article ol {
+  display: flex;
+  flex-direction: column;
+  gap: theme("gap.2");
+}
+
+.content-list {
+  padding-left: theme("padding.7");
+
+  & ol {
+    list-style-type: upper-greek;
+  }
+}

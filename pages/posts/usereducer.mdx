@@ -1,0 +1,156 @@
+---
+title: useReducer
+author: Bembem
+date: April 18, 2022
+api: useReducer
+---
+
+import Container from "components/shared/Container"
+import LayoutArticle from "components/LayoutArticle.js"
+
+export const meta = {
+  title: title,
+  author: author,
+  date: date,
+}
+
+#### Culpa `useReducer` deserunt esse amet culpa amet non.
+
+> #### Table of contents
+>
+> 1. [Adding a reducer to a component](#adding-a-reducer-to-a-component)
+> 2. [Writing the reducer function](#writing-the-reducer-function)
+> 3. [Avoiding recreating the initial state](#avoiding-recreating-the-initial-state)
+
+Anim quis tempor occaecat voluptate velit commodo mollit exercitation tempor qui laborum. Fugiat aliqua irure adipisicing exercitation officia reprehenderit ut anim nulla ex nisi deserunt. Nisi ipsum ex ut consectetur nulla nulla enim consequat laborum deserunt sunt Lorem. Mollit aliqua eu dolore id excepteur labore aliquip labore est enim reprehenderit veniam.
+
+## Adding a reducer to a component
+
+Sint ut occaecat laboris elit magna excepteur proident et minim.
+
+```js
+import { useReducer } from "react"
+
+function reducer(state, action) {
+  // ...
+}
+
+function MyComponent() {
+  const [state, dispatch] = useReducer(reducer, { age: 42 })
+  // ...
+}
+```
+
+<Container className="content-list">
+1. Irure adipisicing consequat esse consectetur. Esse non adipisicing dolore consequat cupidatat Lorem veniam velit excepteur. Incididunt sint ullamco pariatur deserunt ullamco ea fugiat incididunt nulla.
+
+2. Occaecat elit id aute aliquip elit cupidatat eiusmod proident consectetur Lorem deserunt ipsum eiusmod mollit. Sint occaecat reprehenderit veniam eiusmod eiusmod amet laboris duis. Mollit est occaecat cupidatat nostrud fugiat deserunt.
+
+</Container>
+
+Nulla consequat officia eu enim quis voluptate consectetur minim nulla ad ex amet eu voluptate.
+
+```js
+function handleClick() {
+  dispatch({ type: "incremented_age" })
+}
+```
+
+{/* end */}
+
+Voluptate est et veniam ad velit irure. Nulla aliquip dolore velit eu commodo. Sint cupidatat ad culpa ipsum excepteur adipisicing adipisicing laboris officia est excepteur magna eu commodo. Officia id consectetur ex cupidatat mollit dolore.
+
+Dolor et consectetur exercitation aliqua voluptate reprehenderit qui tempor aliqua exercitation aute.
+
+## Writing the reducer function
+
+Fugiat ut dolore quis occaecat consequat commodo id reprehenderit officia ex enim fugiat:
+
+```js
+function reducer(state, action) {
+  // ...
+}
+```
+
+Laboris dolore dolore exercitation et. Aliquip nulla elit irure ad sint sit. Nulla duis deserunt velit id amet anim magna.
+
+```js{4-7,10-12}
+function reducer(state, action) {
+  switch (action.type) {
+    case "incremented_age": {
+      return {
+        name: state.name,
+        age: state.age + 1,
+      }
+    }
+    case "changed_name": {
+      return {
+        name: action.nextName,
+        age: state.age,
+      }
+    }
+  }
+  throw Error("Unknown action: " + action.type)
+}
+```
+
+Irure commodo dolor et quis tempor. Amet sint ea minim id cupidatat anim officia velit incididunt officia enim quis minim. Do occaecat aliqua in sunt in id fugiat aliquip excepteur sit. Exercitation in dolor nulla tempor Lorem eu consectetur. Magna dolor officia mollit elit id enim veniam esse est tempor sit magna. Nostrud dolore sit officia veniam ad minim veniam ad excepteur culpa nisi cupidatat officia. Incididunt eu qui culpa dolor.
+
+```js{5,9-12}
+function Form() {
+  const [state, dispatch] = useReducer(reducer, { name: 'Taylor', age: 42 });
+
+  function handleButtonClick() {
+    dispatch({ type: 'incremented_age' });
+  }
+
+  function handleInputChange(e) {
+    dispatch({
+      type: 'changed_name',
+      nextName: e.target.value
+    });
+  }
+  // ...
+```
+
+Duis proident nulla ad id deserunt eiusmod reprehenderit id dolor cupidatat veniam. Exercitation adipisicing Lorem eiusmod dolor deserunt magna ut laborum exercitation excepteur. Mollit aute labore minim officia esse elit nostrud ullamco. Non nostrud veniam ipsum nostrud aliqua eu nisi do id officia.
+
+Laboris aliquip amet exercitation aliquip magna in ipsum exercitation ut anim reprehenderit ut cillum. Consectetur labore nulla cupidatat excepteur amet. Laboris duis consequat in ut laboris dolor incididunt excepteur. Ea velit mollit sint aute aute veniam magna velit sit eu nisi et ullamco esse.
+
+## Avoiding recreating the initial state
+
+Deserunt excepteur mollit et ullamco fugiat.
+
+```js
+function createInitialState(username) {
+  // ...
+}
+
+function TodoList({ username }) {
+  const [state, dispatch] = useReducer(reducer, createInitialState(username))
+  // ...
+}
+```
+
+Fugiat irure sunt `pariatur quis fugiat`. Nulla qui dolore do aliquip. Non occaecat aliqua eu aliqua. Est ullamco in adipisicing est qui excepteur ullamco duis proident ex aliqua esse aliqua.
+
+Aute tempor exercitation tempor enim enim proident consequat aliquip nulla reprehenderit laboris est fugiat.
+
+```js{6}
+function createInitialState(username) {
+  // ...
+}
+
+function TodoList({ username }) {
+  const [state, dispatch] = useReducer(reducer, username, createInitialState)
+  // ...
+}
+```
+
+Lorem nulla dolore do Lorem culpa sint pariatur irure. Id exercitation excepteur ea non consectetur irure. Nisi reprehenderit laborum aute consectetur laborum dolore ullamco exercitation et ipsum.
+
+Amet aliquip irure proident esse ullamco ea ipsum anim ipsum dolor ipsum culpa fugiat. Duis irure magna occaecat sint. Pariatur exercitation ipsum excepteur ut id commodo cupidatat enim sint laborum eiusmod laboris ad. Aliquip ut dolor sit sunt ea aliqua eiusmod adipisicing deserunt minim elit ad. Proident voluptate esse eiusmod reprehenderit voluptate duis consequat elit qui pariatur quis. Et non aliqua nisi et est id aute proident duis. Occaecat amet labore eiusmod minim occaecat non ad esse ut esse cillum anim.
+
+export default ({ children }) => (
+  <LayoutArticle meta={meta}>{children}</LayoutArticle>
+)
