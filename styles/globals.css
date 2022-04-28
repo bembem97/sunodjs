@@ -85,3 +85,16 @@ article ol {
     list-style-type: upper-greek;
   }
 }
+
+/* useContenxt sample style */
+.panel-dark {
+  background-color: theme("colors.gray.900");
+  border-radius: theme("borderRadius.md");
+  color: theme("colors.white");
+  padding: 1rem 2rem;
+}
+
+.button-dark {
+  padding: 4px 1rem;
+  border: 1px solid theme("colors.gray.50");
+}

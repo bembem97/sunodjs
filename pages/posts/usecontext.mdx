@@ -8,7 +8,10 @@ api: useContext
 import Container from "components/shared/Container"
 import LayoutArticle from "components/LayoutArticle"
 import Alert from "components/shared/Alert"
-import Embed from "components/shared/Embed.js"
+import { Link } from "components/LayoutArticle.js"
+import { Theme } from "components/page/usereducer.js"
+import { UpdateAnObjectViaContext } from "components/page/usecontenxt.js"
+import IFrame from "components/shared/IFrame.js"
 
 export const meta = {
   title: title,
@@ -18,17 +21,22 @@ export const meta = {
 
 #### `useContext` quis nostrud irure elit laborum ullamco veniam Lorem ad ipsum mollit irure id.
 
+```js
+const value = useContext(SomeContext)
+```
+
 > ### Table of contents
 >
 > 1. [Passing data deeply into the tree](#passing-data-deeply-into-the-tree)
+>    1. [Setting theme to dark](#setting-theme-to-dark)
 > 2. [Updating data passed via context](#updating-data-passed-via-context)
+>    1. [Log in as](#log-in-as)
+>    2. [Toggle theme](#toggle-theme)
 > 3. [Specifying a fallback default value](#specifying-a-fallback-default-value)
 > 4. [Overriding context for a part of the tree](#overriding-context-for-a-part-of-the-tree)
 > 5. [Optimizing re-renders when passing objects and functions](#optimizing-re-renders-when-passing-objects-and-functions)
 
-```js
-const value = useContext(SomeContext)
-```
+---
 
 ## Passing data deeply into the tree
 
@@ -65,7 +73,53 @@ Ea tempor elit sunt `excepteur` cupidatat. Ut amet elit eiusmod sit ut `minim oc
 
 {/* end */}
 
-<Embed />
+### Setting theme to dark
+
+Cillum sunt dolor ipsum proident aliquip in qui irure minim.
+
+```js
+import { createContext, useContext } from "react"
+
+const ThemeContext = createContext(null)
+
+export default function MyApp() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Form />
+    </ThemeContext.Provider>
+  )
+}
+
+function Form() {
+  return (
+    <Panel title="Welcome">
+      <Button>Sign up</Button>
+      <Button>Log in</Button>
+    </Panel>
+  )
+}
+
+function Panel({ title, children }) {
+  const theme = useContext(ThemeContext)
+  const className = "panel-" + theme
+  return (
+    <section className={className}>
+      <h1>{title}</h1>
+      {children}
+    </section>
+  )
+}
+
+function Button({ children }) {
+  const theme = useContext(ThemeContext)
+  const className = "button-" + theme
+  return <button className={className}>{children}</button>
+}
+```
+
+<Theme />
+
+<Link href="https://codesandbox.io/s/usereducer-theme-nwqvpc?file=/src/App.js" />
 
 <Alert severity={`warning`}>
 
@@ -99,6 +153,14 @@ function MyPage() {
 ```
 
 Ad id eiusmod Lorem sunt quis `enim consectetur commodo` fugiat. Reprehenderit eu nulla labore ad id eiusmod ut dolor. Mollit reprehenderit consequat sint pariatur sint eiusmod esse ipsum labore consectetur deserunt aliquip. Incididunt anim officia qui Lorem eu non consectetur. Voluptate minim qui aute duis ad do labore qui aliquip nostrud `laborum`. Non ut duis reprehenderit pariatur dolor adipisicing aute dolore sit cupidatat nulla labore officia. Ullamco amet ea ipsum consequat occaecat aliquip ut elit reprehenderit Lorem et voluptate.
+
+### Log in as:
+
+<IFrame src="https://codesandbox.io/embed/update-an-object-via-context-doxbot" />
+
+### Toggle theme
+
+<IFrame src="https://codesandbox.io/embed/update-theme-via-context-g6vygt" />
 
 ## Specifying a fallback default value
 

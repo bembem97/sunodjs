@@ -22,9 +22,8 @@ export default function Home({ data }) {
                   author={article.data.author}
                   datePosted={article.data.date}
                 />
-                <CardBody title={article.data.title}>
-                  {article.excerpt}
-                </CardBody>
+                <CardBody title={article.data.title} />
+
                 <CardFooter footerContentClass="flex justify-center">
                   <Link passHref href={`/posts/${article.slug}`}>
                     <Button

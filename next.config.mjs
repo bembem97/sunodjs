@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 import remarkFrontmatter from "remark-frontmatter"
 import rehypeSlug from "rehype-slug"
-import rehypeSanitize from "rehype-sanitize"
 import { remarkMdxFrontmatter } from "remark-mdx-frontmatter"
 import prism from "remark-prism"
 import withPlugins from "next-compose-plugins"
