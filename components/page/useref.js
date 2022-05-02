@@ -5,7 +5,7 @@ import stopwatch from "texts/useref/stopwatch"
 import focusTextInput from "texts/useref/focusTextInput"
 import scrollImageToView from "texts/useref/scrollImageToView"
 import playAndPauseVideo from "texts/useref/playAndPauseVideo"
-import exposeRefToComponent from "texts/useref/ExposeRefToComponent"
+import exposeRefToComponent from "texts/useref/exposeRefToComponent"
 
 const ClickCounter = () => <Editor files={{ "/App.js": clickCounter }} />
 

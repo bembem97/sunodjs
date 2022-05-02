@@ -26,7 +26,7 @@ import specifyDefVal, {
 
 import overridingATheme, {
   styles as style6,
-} from "texts/usecontext/OverridingATheme"
+} from "texts/usecontext/overridingATheme"
 
 // TODO: UPDATING DATA PASSED VIA CONTEXT
 // *: Update an object via context
