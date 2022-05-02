@@ -1,9 +1,8 @@
-import { createContext, useContext, useState } from "react"
-import MyButton from "components/shared/Button"
+const updateObjViaContext = `import { createContext, useContext, useState } from "react"
 
 const CurrentUserContext = createContext(null)
 
-const UpdateAnObjectViaContext = () => {
+export default function UpdateAnObjectViaContext() {
   const [currentUser, setCurrentUser] = useState(null)
   return (
     <CurrentUserContext.Provider
@@ -44,13 +43,8 @@ function LoginButton() {
 }
 
 function Panel({ title, children }) {
-  const { setCurrentUser } = useContext(CurrentUserContext)
-
   return (
     <section className="panel">
-      <MyButton color="warning" onClick={() => setCurrentUser(null)}>
-        Reset
-      </MyButton>
       <h1>{title}</h1>
       {children}
     </section>
@@ -59,10 +53,10 @@ function Panel({ title, children }) {
 
 function Button({ children, onClick }) {
   return (
-    <MyButton color="success" onClick={onClick}>
+    <button onClick={onClick}>
       {children}
-    </MyButton>
+    </button>
   )
 }
-
-export { UpdateAnObjectViaContext }
+`
+export default updateObjViaContext

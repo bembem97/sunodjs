@@ -60,7 +60,7 @@ article {
       & li {
         &::before {
           counter-increment: toc;
-          content: counters(toc, ".") ". ";
+          content: counters(toc, ".") " ";
         }
       }
 
@@ -83,6 +83,10 @@ article ol {
 
   & ol {
     list-style-type: upper-greek;
+  }
+
+  & ul {
+    list-style-type: disc;
   }
 }
 

@@ -7,6 +7,13 @@ api: useReducer
 
 import Container from "components/shared/Container"
 import LayoutArticle from "components/LayoutArticle.js"
+import {
+  IncrementCounter,
+  FormObject,
+  TodoListArray,
+  PassingTheInitializerFunction,
+  PassingTheInitialStateDirectly,
+} from "components/page/usereducer.js"
 
 export const meta = {
   title: title,
@@ -15,6 +22,10 @@ export const meta = {
 }
 
 #### Culpa `useReducer` deserunt esse amet culpa amet non.
+
+```js
+const [state, dispatch] = useReducer(reducer, initialArg, init)
+```
 
 > #### Table of contents
 >
@@ -59,6 +70,8 @@ function handleClick() {
 {/* end */}
 
 Voluptate est et veniam ad velit irure. Nulla aliquip dolore velit eu commodo. Sint cupidatat ad culpa ipsum excepteur adipisicing adipisicing laboris officia est excepteur magna eu commodo. Officia id consectetur ex cupidatat mollit dolore.
+
+<IncrementCounter />
 
 Dolor et consectetur exercitation aliqua voluptate reprehenderit qui tempor aliqua exercitation aute.
 
@@ -117,6 +130,14 @@ Duis proident nulla ad id deserunt eiusmod reprehenderit id dolor cupidatat veni
 
 Laboris aliquip amet exercitation aliquip magna in ipsum exercitation ut anim reprehenderit ut cillum. Consectetur labore nulla cupidatat excepteur amet. Laboris duis consequat in ut laboris dolor incididunt excepteur. Ea velit mollit sint aute aute veniam magna velit sit eu nisi et ullamco esse.
 
+### Form (Object)
+
+<FormObject />
+
+### Todo list (Array)
+
+<TodoListArray />
+
 ## Avoiding recreating the initial state
 
 Deserunt excepteur mollit et ullamco fugiat.
@@ -150,6 +171,16 @@ function TodoList({ username }) {
 Lorem nulla dolore do Lorem culpa sint pariatur irure. Id exercitation excepteur ea non consectetur irure. Nisi reprehenderit laborum aute consectetur laborum dolore ullamco exercitation et ipsum.
 
 Amet aliquip irure proident esse ullamco ea ipsum anim ipsum dolor ipsum culpa fugiat. Duis irure magna occaecat sint. Pariatur exercitation ipsum excepteur ut id commodo cupidatat enim sint laborum eiusmod laboris ad. Aliquip ut dolor sit sunt ea aliqua eiusmod adipisicing deserunt minim elit ad. Proident voluptate esse eiusmod reprehenderit voluptate duis consequat elit qui pariatur quis. Et non aliqua nisi et est id aute proident duis. Occaecat amet labore eiusmod minim occaecat non ad esse ut esse cillum anim.
+
+### Passing the initializer function
+
+<PassingTheInitializerFunction />
+
+### Passing the initial state directly
+
+<PassingTheInitialStateDirectly />
+
+Labore exercitation veniam amet occaecat dolor quis esse aliquip excepteur laborum id sunt ipsum. Sint elit anim irure nostrud do ut aute minim cillum magna id. Ad sunt dolor laboris quis aliquip nulla magna in proident anim sunt. Dolor consectetur culpa voluptate exercitation nulla. Elit et deserunt velit ut nostrud.
 
 export default ({ children }) => (
   <LayoutArticle meta={meta}>{children}</LayoutArticle>

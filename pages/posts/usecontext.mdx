@@ -9,9 +9,15 @@ import Container from "components/shared/Container"
 import LayoutArticle from "components/LayoutArticle"
 import Alert from "components/shared/Alert"
 import { Link } from "components/LayoutArticle.js"
-import { Theme } from "components/page/usereducer.js"
-import { UpdateAnObjectViaContext } from "components/page/usecontenxt.js"
-import IFrame from "components/shared/IFrame.js"
+import {
+  UpdateThemeViaContext,
+  UpdateObjViaContext,
+  MultipleContext,
+  ExtractingProvidersToAComponent,
+  ScalingUpWithContextAndAReducer,
+  SpecifyingAFallbackDefaultValue,
+  OverridingATheme,
+} from "components/page/usecontext.js"
 
 export const meta = {
   title: title,
@@ -30,8 +36,11 @@ const value = useContext(SomeContext)
 > 1. [Passing data deeply into the tree](#passing-data-deeply-into-the-tree)
 >    1. [Setting theme to dark](#setting-theme-to-dark)
 > 2. [Updating data passed via context](#updating-data-passed-via-context)
->    1. [Log in as](#log-in-as)
+>    1. [Logging in](#logging-in)
 >    2. [Toggle theme](#toggle-theme)
+>    3. [Multiple context](#multiple-context)
+>    4. [Extracting providers to a component](#extracting-providers-to-a-component)
+>    5. [Scaling up with context and a reducer](#scaling-up-with-context-and-a-reducer)
 > 3. [Specifying a fallback default value](#specifying-a-fallback-default-value)
 > 4. [Overriding context for a part of the tree](#overriding-context-for-a-part-of-the-tree)
 > 5. [Optimizing re-renders when passing objects and functions](#optimizing-re-renders-when-passing-objects-and-functions)
@@ -78,6 +87,7 @@ Ea tempor elit sunt `excepteur` cupidatat. Ut amet elit eiusmod sit ut `minim oc
 Cillum sunt dolor ipsum proident aliquip in qui irure minim.
 
 ```js
+import "./styles.css"
 import { createContext, useContext } from "react"
 
 const ThemeContext = createContext(null)
@@ -117,10 +127,6 @@ function Button({ children }) {
 }
 ```
 
-<Theme />
-
-<Link href="https://codesandbox.io/s/usereducer-theme-nwqvpc?file=/src/App.js" />
-
 <Alert severity={`warning`}>
 
 Voluptate est et veniam ad velit irure. `Nulla aliquip` dolore velit eu commodo. Sint cupidatat ad culpa ipsum `excepteur` adipisicing adipisicing laboris officia est excepteur magna eu commodo. Officia id consectetur ex cupidatat mollit dolore.
@@ -154,13 +160,25 @@ function MyPage() {
 
 Ad id eiusmod Lorem sunt quis `enim consectetur commodo` fugiat. Reprehenderit eu nulla labore ad id eiusmod ut dolor. Mollit reprehenderit consequat sint pariatur sint eiusmod esse ipsum labore consectetur deserunt aliquip. Incididunt anim officia qui Lorem eu non consectetur. Voluptate minim qui aute duis ad do labore qui aliquip nostrud `laborum`. Non ut duis reprehenderit pariatur dolor adipisicing aute dolore sit cupidatat nulla labore officia. Ullamco amet ea ipsum consequat occaecat aliquip ut elit reprehenderit Lorem et voluptate.
 
-### Log in as:
+### Logging in
 
-<IFrame src="https://codesandbox.io/embed/update-an-object-via-context-doxbot" />
+<UpdateObjViaContext />
 
 ### Toggle theme
 
-<IFrame src="https://codesandbox.io/embed/update-theme-via-context-g6vygt" />
+<UpdateThemeViaContext />
+
+### Multiple context
+
+<MultipleContext />
+
+### Extracting providers to a component
+
+<ExtractingProvidersToAComponent />
+
+### Scaling up with context and a reducer
+
+<ScalingUpWithContextAndAReducer />
 
 ## Specifying a fallback default value
 
@@ -181,6 +199,8 @@ const ThemeContext = createContext("light")
 
 Aliquip dolore quis voluptate est magna exercitation minim nisi id eu dolore qui cillum. Aliqua est minim deserunt excepteur eu elit aliqua mollit deserunt ea fugiat aliquip. Nostrud nisi ex quis nisi labore incididunt non excepteur consequat do Lorem pariatur laborum magna. Eiusmod sunt culpa pariatur velit commodo reprehenderit excepteur laborum. Cillum quis ex ad aliqua cupidatat nisi enim enim tempor sint id elit. Et Lorem laborum sint ut culpa minim anim culpa sit voluptate occaecat quis. Enim ea ut do proident voluptate ad anim non fugiat sit aliquip sit voluptate in.
 
+<SpecifyingAFallbackDefaultValue />
+
 Veniam id enim eiusmod labore.
 
 ## Overriding context for a part of the tree
@@ -196,6 +216,8 @@ Ut in aliqua irure nostrud officia magna nostrud reprehenderit laborum tempor pa
   ...
 </ThemeContext.Provider>
 ```
+
+<OverridingATheme />
 
 Quis cupidatat non irure adipisicing aliquip occaecat exercitation amet dolor enim.
 

@@ -6,12 +6,15 @@ api: useRef
 ---
 
 import Container from "components/shared/Container"
+import Alert from "components/shared/Alert"
 import LayoutArticle from "components/LayoutArticle"
 import {
-  CounterClicks,
-  StopWatch,
-  FocusElement,
-  FocusElement2,
+  ClickCounter,
+  Stopwatch,
+  FocusTextInput,
+  ScrollImageToView,
+  PlayAndPauseVideo,
+  ExposeRefToComponent,
 } from "components/page/useref"
 import { Link } from "components/LayoutArticle.js"
 
@@ -24,285 +27,227 @@ export const meta = {
 
 #### `useRef` do dolore duis nisi occaecat fugiat amet. In `reference` ut sit voluptate aliqua nulla do anim eiusmod.
 
-Esse fugiat Lorem voluptate incididunt. Amet incididunt sint magna eu veniam esse nulla dolor Lorem.
+```js
+const ref = useRef(initialValue)
+```
 
-{/* prettier-ignore */}
-> ## Table of contents
->
-> 1.  [Mutable values](#mutable-values)
->     1. [Use case: Counter clicks](#use-case-counter-clicks)
->     2. [Use case: Implenting Stopwatch](#implenting-stopwatch)
-> 2.  [Accessing DOM elements](#accessing-dom-elements)
->     1. [Use case: focusing an input](#use-case-focusing-an-input)
-> 3.  [Updating references restriction](#updating-references-restriction)
-> 4.  [Summary](#summary)
+## Referencing a value with a ref
 
-## Mutable values
-
-Excepteur occaecat enim enim cillum cupidatat ut ipsum ad enim ut quis deserunt enim aute. Duis nisi sint officia ullamco eu laboris pariatur aute sunt. Eiusmod laborum qui minim in ipsum eiusmod do tempor esse exercitation commodo.Excepteur non cillum et ut et qui cillum fugiat ea elit.
-
-{/* end */}
+Esse `fugiat` Lorem voluptate incididunt. Amet incididunt sint magna eu veniam esse nulla dolor Lorem.
 
 ```js
 import { useRef } from "react"
 
-function MyComponent() {
-  const reference = useRef(initialValue)
+function Stopwatch() {
+  const intervalRef = useRef(0)
+  // ...
+}
+```
 
-  const someHandler = () => {
-    // Access reference value:
-    const value = reference.current
-    // Update reference value:
-    reference.current = newValue
+Irure ex deserunt amet do laborum.
+
+Duis voluptate nostrud excepteur ut commodo non exercitation voluptate deserunt commodo veniam nulla. Culpa consectetur non elit ut anim officia non laboris do Lorem sit ut aliqua ipsum. Mollit consequat minim et fugiat nisi sint consequat quis reprehenderit non sit. Magna dolor eu ea non laborum consequat.
+
+```js
+function handleStartClick() {
+  const intervalId = setInterval(() => {
+    // ...
+  }, 1000)
+  intervalRef.current = intervalId
+}
+```
+
+Cillum pariatur cillum in culpa ex id:
+
+```js
+function handleStopClick() {
+  const intervalId = intervalRef.current
+  clearInterval(intervalId)
+}
+```
+
+Veniam est duis voluptate id culpa officia est.
+
+<Container className="content-list" noContainer>
+
+- Duis dolor eiusmod officia consectetur sint.
+
+- Minim dolore culpa eu ea consectetur do Lorem aliquip ad magna.
+
+- Excepteur elit elit irure ad laboris officia cupidatat amet mollit pariatur incididunt incididunt.
+
+</Container>
+
+Nulla qui commodo velit ex cillum labore. Ut mollit nisi aliquip anim `incididunt` eu tempor cupidatat. Pariatur non ut `consectetur` nisi officia esse sit. Laborum et anim magna amet tempor nisi eiusmod ut irure ea adipisicing.
+
+### Click counter
+
+<ClickCounter />
+
+### Stopwatch
+
+<Stopwatch />
+
+<Alert severity="warning">
+
+#### Elit duis proident ad commodo _exercitation_ est ad et.
+
+Proident commodo minim culpa mollit. Duis cillum id ipsum ut do nulla dolore non nisi culpa consectetur nostrud.
+
+<Container className="content-list">
+
+- In esse enim dolore sunt magna ut esse consequat pariatur reprehenderit aliquip minim reprehenderit.
+
+- Culpa qui magna ad velit aliqua deserunt et.
+
+</Container>
+
+Ut amet ullamco amet incididunt consectetur irure id adipisicing aliquip ex occaecat dolore veniam.
+
+```js
+function MyComponent() {
+  // ...
+  // 🚩 Don't write a ref during rendering
+  myRef.current = 123
+  // ...
+  // 🚩 Don't read a ref during rendering
+  return <h1>{myOtherRef.current}</h1>
+}
+```
+
+Eiusmod culpa laboris pariatur enim nulla occaecat pariatur.
+
+```js
+function MyComponent() {
+  // ...
+  useEffect(() => {
+    // ✅ You can read or write refs in effects
+    myRef.current = 123
+  })
+  // ...
+  function handleClick() {
+    // ✅ You can read or write refs in event handlers
+    doSomething(myOtherRef.current)
   }
   // ...
 }
 ```
 
-### Use case: Counter clicks
+Ipsum voluptate occaecat sunt Lorem do.
 
-Voluptate est et veniam ad velit irure. Nulla aliquip dolore velit eu commodo. Sint cupidatat ad culpa ipsum excepteur adipisicing adipisicing laboris officia est excepteur magna eu commodo. Officia id consectetur ex cupidatat mollit dolore.
+<br />
+Magna cupidatat duis excepteur velit minim tempor pariatur amet cupidatat dolore
+ad.
 
-Dolor et consectetur exercitation aliqua voluptate reprehenderit qui tempor aliqua exercitation aute.
+Consectetur commodo non amet anim sint amet. Est reprehenderit quis cillum esse minim eiusmod.
+
+</Alert>
+
+---
+
+## Manipulating the DOM with a ref
+
+Culpa `tempor` aute in sint esse sit amet quis.
+
+Id aliquip cupidatat amet tempor `commodo` laboris.
 
 ```js
-import { useRef } from "react"
+import { useRef } from 'react';
 
-function CounterClicks() {
-  const countRef = useRef(0)
+function MyComponent() {
+  const inputRef = useRef(null);
+  // ...
+```
 
-  const handle = () => {
-    countRef.current++
-    console.log(`Clicked ${countRef.current} times`)
-  }
+Laborum labore commodo qui in ut ipsum deserunt tempor Lorem fugiat eu ad.
 
-  console.log("I rendered!")
+```js
+// ...
+return <input ref={inputRef} />
+```
 
-  return <button onClick={handle}>Click me</button>
+Officia reprehenderit amet sit laborum consectetur ullamco dolore officia reprehenderit excepteur sint velit ex.
+
+```js
+function handleClick() {
+  inputRef.current.focus()
 }
 ```
 
-<Link href="https://codesandbox.io/s/useref-counter-click-g2z9si?file=/src/App.js" />
+Adipisicing `aliqua` laboris occaecat qui `laborum` irure non sint nisi exercitation.
 
-#### Reprehenderit ut commodo reprehenderit eiusmod enim amet eu non.
+Incididunt laborum eiusmod qui non est eu aliqua.
+
+### Focusing a text input
+
+<FocusTextInput />
+
+### Scrolling an image into view
+
+<ScrollImageToView />
+
+### Playing and pausing a video
+
+<PlayAndPauseVideo />
+
+### Exposing a ref to your own component
+
+<ExposeRefToComponent />
+
+---
+
+## Avoiding recreating the ref contents
+
+Nulla cillum enim eiusmod deserunt.
 
 ```js
-import { useState } from "react"
-
-function CounterClicks() {
-  const [count, setCount] = useState(0)
-
-  const handle = () => {
-    const updatedCount = count + 1
-
-    console.log(`Clicked ${updatedCount} times`)
-    setCount(updatedCount)
-  }
-
-  console.log("I rendered!")
-  return <button onClick={handle}>Click me</button>
-}
+function Video() {
+  const playerRef = useRef(new VideoPlayer());
+  // ...
 ```
 
-<Link href="https://codesandbox.io/s/usestate-counter-clicks-ix368c?file=/src/App.js" />
+Velit labore anim veniam officia reprehenderit consectetur velit. Ullamco labore in qui sint incididunt anim eu. Duis tempor ipsum pariatur exercitation adipisicing irure irure. Eu magna quis enim ex quis non ut laboris esse.
 
-#### Ad do ex reprehenderit cupidatat.
-
-Tempor voluptate tempor labore ullamco reprehenderit quis velit exercitation est ad sit aute. Exercitation dolore dolor reprehenderit laborum.
-
-<CounterClicks />
-
-Enim dolor incididunt cupidatat nostrud eiusmod est labore est.
-
-Velit quis sit reprehenderit non. Officia sunt tempor ea velit est adipisicing. Consectetur fugiat ad irure labore ad ipsum aute ullamco ullamco et. Duis et aute veniam ex excepteur est sit quis ipsum irure incididunt sint.
-
-### Implenting Stopwatch
-
-Qui consequat nostrud aliquip eu cillum id voluptate voluptate pariatur.
-
-Enim veniam pariatur veniam eiusmod qui cillum dolor.Labore id ipsum nisi eiusmod consectetur fugiat qui nulla irure occaecat tempor minim adipisicing.
+Minim eu fugiat in ipsum ut eu commodo.
 
 ```js
-import { useRef, useState, useEffect } from "react"
+function Video() {
+  const playerRef = useRef(null);
+  if (playerRef.current === null) {
+    playerRef.current = new VideoPlayer();
+  }
+  // ...
+```
 
-function Stopwatch() {
-  const timerIdRef = useRef(0)
-  const [count, setCount] = useState(0)
-  const startHandler = () => {
-    if (timerIdRef.current) {
-      return
+Officia incididunt eu dolore veniam quis Lorem. Anim sit sint eiusmod commodo et voluptate veniam dolore. Ad elit excepteur aliquip consequat labore non ullamco sint cillum excepteur in laboris.
+
+<Alert>
+
+#### How to avoid null checks when initializing useRef later
+
+Excepteur dolor excepteur mollit et.
+
+```js
+function Video() {
+  const playerRef = useRef(null);
+
+  function getPlayer() {
+    if (playerRef.current !== null) {
+      return playerRef.current;
     }
-    timerIdRef.current = setInterval(() => setCount((c) => c + 1), 1000)
+    const player = new VideoPlayer();
+    playerRef.current = player;
+    return player;
   }
 
-  const stopHandler = () => {
-    clearInterval(timerIdRef.current)
-    timerIdRef.current = 0
-  }
-
-  useEffect(() => {
-    return () => clearInterval(timerIdRef.current)
-  }, [])
-
-  return (
-    <div>
-      <div>Timer: {count}s</div>
-      <div>
-        <button onClick={startHandler}>Start</button>
-        <button onClick={stopHandler}>Stop</button>
-      </div>
-    </div>
-  )
-}
+  // ...
 ```
 
-<Link href="https://codesandbox.io/s/stopwatch-cm7zz?file=/src/App.js" />
+Ad qui amet laborum fugiat aliquip culpa.
 
-<StopWatch />
+Eu sunt eiusmod ipsum ipsum do do aliqua minim laborum deserunt et voluptate ullamco ad.
 
-Magna non irure velit minim nisi ea voluptate voluptate dolor esse quis elit exercitation dolor.
-
-Sint sit exercitation velit voluptate irure laboris minim ut anim consectetur occaecat id fugiat. Ex ex laboris occaecat laborum ipsum consectetur magna do cillum occaecat commodo duis. Nostrud sunt irure laboris sunt anim excepteur nostrud non ad dolore laborum deserunt reprehenderit do.
-
-Laborum culpa qui ullamco ut ex. Consectetur aliquip sit consequat anim nostrud. Ex velit dolor pariatur laborum laboris fugiat do ex cupidatat officia cillum cillum incididunt excepteur. Eiusmod ullamco amet nostrud voluptate velit. Nulla Lorem sint nulla dolore nisi in minim velit commodo.
-
-Consequat quis adipisicing minim dolore irure est ea ullamco cupidatat enim aliqua deserunt duis in. Eiusmod nulla dolore anim deserunt. Aliquip nulla sint elit labore. Aute eu adipisicing duis mollit minim ea enim reprehenderit et culpa irure voluptate. Occaecat voluptate amet id duis qui aliquip sint reprehenderit anim dolor nostrud sit ut aliqua. Proident irure occaecat mollit exercitation sit minim incididunt cillum minim sunt pariatur. Et irure enim pariatur mollit nisi in pariatur sint aliqua pariatur adipisicing.
-
-## Accessing DOM elements
-
-Consequat irure dolore culpa consequat eu pariatur quis cupidatat aliquip.Eiusmod proident non laboris velit aliqua proident laborum excepteur dolore tempor eu ea.
-
-```js
-import { useRef, useEffect } from "react"
-
-function AccessingDOMElement() {
-  const elementRef = useRef()
-
-  useEffect(() => {
-    const divElement = elementRef.current
-    console.log(divElement) // logs <div>I'm an element</div>
-  }, [])
-
-  return <div ref={elementRef}>I'm an element</div>
-}
-```
-
-<Link href="https://codesandbox.io/s/useref-accessing-dom-element-g96si1?file=/src/App.js" />
-
-Ad mollit aute quis occaecat veniam sunt minim ut et sint. Deserunt nisi irure officia ea. Tempor ex deserunt laborum eiusmod est incididunt consequat consectetur elit.
-
-Ut fugiat ut pariatur consectetur proident duis ex labore duis cillum dolore do sit sunt. Laborum proident tempor ipsum esse dolore culpa elit consequat officia excepteur non dolor et. Ex Lorem ea et quis incididunt irure culpa excepteur ipsum qui. Amet eu voluptate labore exercitation pariatur aute duis veniam. Eiusmod amet dolore adipisicing esse qui. Qui laborum labore cupidatat amet voluptate minim consequat ipsum aliquip. Eiusmod ex voluptate culpa dolor qui ipsum dolore tempor ullamco aliqua cillum.
-
-### Use case: focusing an input
-
-```js
-import { useRef, useEffect } from "react"
-
-function InputFocus() {
-  const inputRef = useRef()
-
-  return (
-    <>
-      <input ref={inputRef} type="text" />
-      <button onClick={() => inputRef.current.focus()}>Submit</button>
-    </>
-  )
-}
-```
-
-<Link href="https://codesandbox.io/s/useref-focus-on-input-fgy2pq?file=/src/App.js" />
-
-<FocusElement />
-
-#### Culpa mollit voluptate exercitation culpa.
-
-Nisi ex ad quis dolore culpa.
-
-Adipisicing in fugiat duis laboris quis culpa dolore deserunt voluptate.
-
-```js
-import { useRef, useEffect } from "react"
-
-function InputFocus() {
-  const inputRef = useRef()
-
-  useEffect(() => {
-    // Logs `HTMLInputElement`
-    console.log(inputRef.current)
-
-    inputRef.current.focus()
-  }, [])
-
-  // Logs `undefined` during initial rendering
-  console.log(inputRef.current)
-
-  return (
-    <>
-      <h4>Open console log</h4>
-      <input ref={inputRef} type="text" />
-    </>
-  )
-}
-```
-
-<Link href="https://codesandbox.io/s/useref-focus-on-element-xg9d75?file=/src/App.js" />
-
-<FocusElement2 />
-
-Cillum eu laboris qui adipisicing ad nostrud commodo exercitation incididunt.
-
-Voluptate aliqua amet non non. Nisi ex ea Lorem et laborum ex Lorem ea ea exercitation ipsum nostrud labore. Consectetur minim nulla sit non. Ut dolore adipisicing duis cillum dolor eu velit adipisicing cillum irure aliquip elit id. Excepteur qui aliqua dolore eu ut exercitation ipsum cillum consectetur consectetur nostrud ipsum. Elit ullamco laboris aliqua cupidatat aute ullamco eu. Incididunt minim eu nisi officia esse minim ullamco sunt esse.
-
-## Updating references restriction
-
-Voluptate pariatur anim aliquip ipsum non.
-Aute amet velit ad duis non ut ipsum veniam laborum.
-
-```js
-import { useRef, useEffect } from "react"
-
-function MyComponent({ prop }) {
-  const myRef = useRef(0)
-
-  useEffect(() => {
-    myRef.current++ // Good!
-
-    setTimeout(() => {
-      myRef.current++ // Good!
-    }, 1000)
-  }, [])
-
-  const handler = () => {
-    myRef.current++ // Good!
-  }
-
-  myRef.current++ // Bad!
-
-  if (prop) {
-    myRef.current++ // Bad!
-  }
-
-  return <button onClick={handler}>My button</button>
-}
-```
-
-Ex veniam pariatur sunt mollit laboris fugiat laboris deserunt occaecat amet. Ipsum do laboris fugiat tempor velit amet ad aliqua tempor. Sunt pariatur reprehenderit enim consequat enim anim id dolor aute ullamco nulla. Et ea irure dolore do nulla esse officia et aute deserunt esse incididunt aliquip anim.
-
-Velit id ipsum consequat magna pariatur fugiat.
-
-## Summary
-
-Eu in voluptate duis voluptate consequat esse aliqua id Lorem aliqua mollit eu aliquip nisi.
-
-Ipsum consectetur laborum aute laborum consectetur id ex consequat minim in cillum reprehenderit. Consectetur irure sit ullamco adipisicing do aliqua laboris dolor excepteur amet excepteur velit. Anim tempor enim et enim culpa dolore aute dolore eu minim consequat non. Labore ea reprehenderit eiusmod dolor fugiat ipsum irure proident et duis pariatur ipsum. Aliquip aute cillum cillum tempor dolore labore non consectetur. Nisi tempor elit deserunt veniam voluptate cupidatat magna duis duis.
-
-Labore officia laborum enim elit cillum nisi voluptate et Lorem do ex dolor.
-
-Enim ea veniam aliqua commodo reprehenderit ea elit ad voluptate. Quis reprehenderit minim culpa dolor veniam. Lorem magna duis voluptate nostrud.
-
-Sit irure anim Lorem anim eu dolor velit fugiat anim. Et et veniam quis occaecat labore esse consectetur mollit qui adipisicing aliqua. Sint duis velit amet consectetur dolore dolor aute. Pariatur officia reprehenderit eiusmod tempor ea est aliquip id labore qui dolore occaecat elit exercitation.
-
-Deserunt consectetur exercitation aliquip commodo officia commodo mollit non amet Lorem magna elit laboris deserunt. Excepteur eiusmod ex veniam mollit magna ut occaecat irure ullamco eu. Aute irure eiusmod aute culpa dolore est nisi. Exercitation labore eu aliquip incididunt esse cillum excepteur deserunt mollit. Veniam non exercitation adipisicing reprehenderit ad sunt proident aute duis dolore. Laborum labore excepteur est esse ullamco reprehenderit ex non ipsum sit minim. Eiusmod cillum duis nisi pariatur magna commodo amet deserunt qui consequat dolor tempor.
+</Alert>
 
 export default ({ children }) => (
   <LayoutArticle meta={meta}>{children}</LayoutArticle>

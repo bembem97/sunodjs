@@ -8,6 +8,21 @@ api: useState
 import Container from "components/shared/Container"
 import LayoutArticle from "components/LayoutArticle.js"
 import Link from "next/link"
+import {
+  Checkbox,
+  TextField,
+  Form,
+  Counter,
+  PassUpdaterFunc,
+  PassStateDirectly,
+  PassUpdaterFunc2,
+  PassStateDirectly2,
+  ArrForm,
+  NestedArrForm,
+  List,
+  ResetState,
+  StoreInfoFromPrevRender,
+} from "components/page/usestate.js"
 
 export const meta = {
   title: title,
@@ -17,23 +32,34 @@ export const meta = {
 
 #### Ut in `useState` id incididunt sit. Laboris velit sint est dolore eu do exercitation non quis ipsum labore quis velit magna.
 
-Exercitation culpa amet et quis laboris officia ex esse incididunt tempor id. Eu ad laborum laboris exercitation voluptate velit. Nulla voluptate reprehenderit officia anim eu laborum consequat magna eiusmod.
+```js
+const [state, setState] = useState(initialState)
+```
 
 > ## Table of contents
 >
 > 1. [Adding state to a component](#adding-state-to-a-component)
+>    1. [Counter](#counter)
+>    2. [Textfield](#textfield)
+>    3. [Checkbox](#checkbox)
+>    4. [Form](#form)
 > 2. [Updating state based on the previous state](#updating-state-based-on-the-previous-state)
+>    1. [Passing the updater function](#passing-the-updater-function)
+>    2. [Passing the next state directly](#passing-the-next-state-directly)
 > 3. [Updating objects and arrays in state](#updating-objects-and-arrays-in-state)
+>    1. [Form (object)](#form-object)
+>    2. [Form (nested object)](#form-nested-object)
+>    3. [List (array)](#list-array)
 > 4. [Avoiding recreating the initial state](#avoiding-recreating-the-initial-state)
+>    1. [Passing the initializer function](#passing-the-initializer-function)
+>    2. [Passing the initial state directly](#passing-the-initial-state-directly)
+> 5. [Resetting state with a key](#resetting-state-with-a-key)
+> 6. [Storing information from previous renders](#storing-information-from-previous-renders)
 
 Excepteur pariatur cillum dolor est elit excepteur Lorem ipsum veniam aliqua occaecat sit anim.
 
 Veniam dolore occaecat consequat ut sint non ullamco laboris proident incididunt officia.
 Incididunt proident anim occaecat dolor nulla nulla.
-
-```js
-const [state, setState] = useState(initialState)
-```
 
 Adipisicing reprehenderit ut anim laboris ex est enim enim quis.
 
@@ -83,6 +109,24 @@ function handleClick() {
 
 <h2>Henlo Wold</h2>
 
+#### Counter
+
+<Counter />
+
+#### TextField
+
+<TextField />
+
+#### Checkbox
+
+<Checkbox />
+
+#### Form
+
+<Form />
+
+---
+
 ## Updating state based on the previous state
 
 Non cillum quis ad dolor ad esse aliqua ea reprehenderit elit occaecat.
@@ -109,19 +153,29 @@ function handleClick() {
 }
 ```
 
+### Passing the updater function
+
+<PassUpdaterFunc />
+
+### Passing the next state directly
+
+<PassStateDirectly />
+
+---
+
 ## Updating objects and arrays in state
 
 Velit pariatur occaecat anim aute.
 
 ```js
-// Don't mutate an object in state like this:
+// 🚩 Don't mutate an object in state like this:
 form.firstName = "Taylor"
 ```
 
 Nostrud ut esse duis aliqua fugiat deserunt duis in dolore adipisicing elit occaecat cupidatat.
 
 ```js
-// Replace state with a new object
+// ✅ Replace state with a new object
 setForm({
   ...form,
   firstName: "Taylor",
@@ -133,6 +187,20 @@ Ex voluptate excepteur cillum laboris ullamco magna. Excepteur culpa tempor est 
 Ut ipsum voluptate culpa exercitation consequat consequat exercitation.
 
 Ut reprehenderit ipsum exercitation consequat. Aliquip elit cupidatat qui nulla duis exercitation dolore laborum cillum incididunt esse. Dolore quis nulla aliquip sunt deserunt in cillum veniam irure labore qui. Eu et ea amet dolor proident magna est anim commodo qui aliquip. Tempor commodo ex mollit adipisicing minim ut nulla nostrud exercitation fugiat officia in cupidatat duis. Lorem et aliqua dolore eu dolor nisi consequat enim enim dolore dolor. Ullamco proident fugiat consequat sint aute non eiusmod mollit quis laboris sunt.
+
+### Form (object)
+
+<ArrForm />
+
+### Form (nested object)
+
+<NestedArrForm />
+
+### List (array)
+
+<List />
+
+---
 
 ## Avoiding recreating the initial state
 
@@ -159,6 +227,66 @@ function TodoList() {
 Eu aliqua velit laboris voluptate fugiat consequat sit nulla elit cupidatat minim proident. Deserunt in pariatur irure adipisicing id cupidatat. Aute magna tempor cillum fugiat pariatur eiusmod laboris consequat aliquip velit. Id velit officia elit commodo magna anim non. Quis veniam ea sunt dolor veniam deserunt quis. Ex consectetur est culpa est. Eu commodo culpa et ullamco mollit proident consectetur Lorem id deserunt magna aliquip.
 
 Minim consequat reprehenderit elit veniam velit amet dolor nisi nostrud minim adipisicing.
+
+### Passing the initializer function
+
+<PassUpdaterFunc2 />
+
+### Passing the initial state directly
+
+<PassStateDirectly2 />
+
+---
+
+## Resetting state with a key
+
+Eu aliqua commodo non mollit velit qui et laborum culpa aliqua exercitation do.
+
+Occaecat minim dolore deserunt nisi pariatur excepteur nisi nulla et commodo. Ut enim ea commodo Lorem sunt cupidatat consectetur labore culpa officia sit et. Mollit amet excepteur non incididunt laboris occaecat. Mollit ullamco qui officia do minim officia minim cillum occaecat nulla exercitation. Sit et ad occaecat qui. Consequat velit dolore deserunt in dolor ullamco tempor ad. Nulla fugiat voluptate culpa laboris esse Lorem consequat eu.
+
+Ea ipsum ipsum ullamco Lorem qui.
+
+<ResetState />
+
+---
+
+## Storing information from previous renders
+
+Ut sint ullamco voluptate et sint irure minim.
+
+Incididunt labore labore veniam consectetur ullamco consectetur quis magna anim. Minim cillum id anim labore ex esse. Magna voluptate eu esse consequat esse. Enim occaecat voluptate in sunt. Irure nulla dolore laboris anim qui reprehenderit ex nulla.
+
+<Container className="content-list">
+
+In reprehenderit ut aliqua consequat laboris proident et. Officia id consequat sint amet nostrud est. Esse culpa proident non reprehenderit dolor exercitation commodo enim non proident. Sit voluptate consectetur elit consectetur labore qui adipisicing proident velit. Magna in aliquip velit veniam sit exercitation sit tempor id officia. Do occaecat nostrud culpa dolore adipisicing sit sunt irure nisi elit incididunt. Adipisicing elit consequat incididunt dolor ad incididunt cillum.
+
+- Occaecat sint laboris laboris enim dolor non ex anim mollit adipisicing esse anim elit consequat.
+
+- Id ea consectetur commodo exercitation in adipisicing culpa sunt minim quis nostrud duis officia.
+
+- In sint est laborum esse labore dolore.
+
+Occaecat laboris consequat sunt ipsum elit minim Lorem tempor eu ad nisi aliqua nulla nulla.
+
+Incididunt est aute ut duis fugiat. Aliqua qui enim consectetur tempor et reprehenderit excepteur occaecat elit deserunt excepteur enim id.
+
+</Container>
+
+```js
+export default function CountLabel({ count }) {
+  return <h1>{count}</h1>
+}
+```
+
+Elit excepteur ad laboris eu cupidatat sit do velit pariatur enim. Cillum labore enim eiusmod consequat ullamco Lorem deserunt sit aliqua adipisicing. Ut quis do quis laborum reprehenderit adipisicing sit mollit. Velit Lorem excepteur in consectetur velit in est deserunt.
+
+---
+
+<StoreInfoFromPrevRender />
+
+Aliquip consequat dolore eiusmod cillum aliqua. Esse laboris aliqua esse minim amet eiusmod duis cillum non. Minim id ullamco id mollit cupidatat qui sint culpa enim adipisicing tempor amet elit. Aliqua mollit proident anim esse fugiat consequat cillum fugiat minim est irure. Commodo aliquip ex incididunt proident. Reprehenderit ipsum incididunt irure fugiat eiusmod.
+
+Reprehenderit ipsum reprehenderit sit nisi ex duis sint. Amet consectetur ipsum id ipsum anim Lorem sit sit sit. Anim deserunt anim elit minim cupidatat dolore velit aliquip voluptate qui. Anim dolor mollit non dolor adipisicing. Excepteur irure nulla fugiat voluptate sit minim. Voluptate nostrud quis nostrud velit dolor. Ea duis nulla reprehenderit nulla reprehenderit in cupidatat laborum duis veniam in consequat.
 
 export default ({ children }) => (
   <LayoutArticle meta={meta}>{children}</LayoutArticle>

@@ -1,39 +1,43 @@
-import { createContext, useContext } from "react"
+import Editor from "components/shared/Editor"
 
-const ThemeContext = createContext(null)
+import incrementCounter from "texts/usereducer/incrementCounter"
+import form from "texts/usereducer/form"
+import todoListArray, {
+  addTask,
+  taskList,
+} from "texts/usereducer/todoListArray"
 
-const Theme = () => {
-  return (
-    <ThemeContext.Provider value="dark">
-      <Form />
-    </ThemeContext.Provider>
-  )
+import passingTheInitializerFunction from "texts/usereducer/passingTheInitializerFunction"
+import passingTheInitialStateDirectly from "texts/usereducer/passingTheInitialStateDirectly"
+
+const IncrementCounter = () => (
+  <Editor files={{ "/App.js": incrementCounter }} />
+)
+
+const FormObject = () => <Editor files={{ "/App.js": form }} />
+
+const TodoListArray = () => (
+  <Editor
+    files={{
+      "/App.js": todoListArray,
+      "/AddTask.js": { code: addTask, hidden: true },
+      "/TaskList.js": { code: taskList, hidden: true },
+    }}
+  />
+)
+
+const PassingTheInitializerFunction = () => (
+  <Editor files={{ "/App.js": passingTheInitializerFunction }} />
+)
+
+const PassingTheInitialStateDirectly = () => (
+  <Editor files={{ "/App.js": passingTheInitialStateDirectly }} />
+)
+
+export {
+  IncrementCounter,
+  FormObject,
+  TodoListArray,
+  PassingTheInitializerFunction,
+  PassingTheInitialStateDirectly,
 }
-
-function Form() {
-  return (
-    <Panel title="Welcome">
-      <Button>Sign up</Button>
-      <Button>Log in</Button>
-    </Panel>
-  )
-}
-
-function Panel({ title, children }) {
-  const theme = useContext(ThemeContext)
-  const className = "panel-" + theme
-  return (
-    <section className={className}>
-      <h1>{title}</h1>
-      {children}
-    </section>
-  )
-}
-
-function Button({ children }) {
-  const theme = useContext(ThemeContext)
-  const className = "button-" + theme
-  return <button className={className}>{children}</button>
-}
-
-export { Theme }
