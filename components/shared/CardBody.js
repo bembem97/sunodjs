@@ -1,14 +1,21 @@
-const CardBody = ({ title, children, ...props }) => {
+const CardBody = ({
+  title,
+  children,
+  titleClassName,
+  excerptClassName,
+  ...props
+}) => {
   return (
     <>
-      <div
-        {...props}
-        className={`card__body py-2 px-4 ${props.className || ""}`.trim()}
-      >
+      <div {...props} className={`card__body ${props.className || ""}`.trim()}>
         {title && (
-          <h1 className="card__title text-lg mb-2 font-semibold">{title}</h1>
+          <h1 className={`card__title ${titleClassName || ""}`.trim()}>
+            {title}
+          </h1>
         )}
-        <p className="card__excerpt max-h-[100px] line-clamp-4">{children}</p>
+        <p className={`card__excerpt ${excerptClassName || ""}`.trim()}>
+          {children}
+        </p>
       </div>
     </>
   )

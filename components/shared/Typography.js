@@ -29,6 +29,10 @@ const Typography = ({ children, tag: Components = "p", variant, ...props }) => {
         setVariant(TYPOGRAPHY.h4)
         break
 
+      case "sub":
+        setVariant(TYPOGRAPHY.sub)
+        break
+
       default:
         setVariant("")
     }

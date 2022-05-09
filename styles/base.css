@@ -1,8 +1,7 @@
 @layer base {
   html,
   body,
-  #__next,
-  main {
+  #__next {
     width: 100%;
     min-height: 100vh;
   }

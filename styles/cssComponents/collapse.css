@@ -1,0 +1,17 @@
+@layer components {
+  .collapse {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .collapse__menu {
+    transition: height 1150ms;
+    @apply h-0 flex flex-col;
+  }
+
+  .rotate {
+    transform: rotate(0deg);
+  }
+}

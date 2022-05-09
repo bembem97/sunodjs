@@ -9,7 +9,13 @@ const Editor = ({ files, ...props }) => {
       template="react"
       files={files}
       theme="github-light"
-      options={{ autorun: false }}
+      options={{
+        autorun: false,
+        classes: {
+          "sp-wrapper": "custom-wrapper",
+          "sp-button": "custom-button",
+        },
+      }}
       {...props}
     />
   )

@@ -1,4 +1,4 @@
-import "styles/globals.css"
+import "styles/global.css"
 import "prismjs/themes/prism-okaidia.css"
 
 import React from "react"

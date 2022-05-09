@@ -1,0 +1,41 @@
+@layer components {
+  #modal > .modal__container {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    & .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(15, 15, 15, 0.4);
+      min-height: 100vh;
+    }
+
+    & > button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+      font-size: theme("fontSize.3xl");
+      width: 32px;
+      height: 32px;
+      padding: 0 !important;
+      color: black;
+      font-weight: bolder;
+
+      &:hover {
+        color: theme("colors.red.600");
+      }
+    }
+
+    & .content {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background-color: theme("colors.primary");
+      width: theme("width.80");
+      z-index: 1000;
+      min-height: 100vh;
+    }
+  }
+}

@@ -18,6 +18,18 @@
       @apply bg-amber-600 hover:bg-amber-700 text-neutral-50;
     }
 
+    &-primary {
+      @apply bg-primary hover:bg-gray-100 text-neutral-900;
+    }
+
+    &-secondary {
+      @apply bg-secondary hover:bg-indigo-200 text-neutral-900;
+    }
+
+    &-tertiary {
+      @apply bg-tertiary hover:bg-purple-500 text-neutral-900;
+    }
+
     &-default {
       @apply text-black bg-transparent hover:bg-transparent;
     }

@@ -1,18 +1,44 @@
 import PropTypes from "prop-types"
+import React from "react"
 
-import Nav from "./Nav"
+import Modal from "./shared/Modal"
+import HeadNav from "./HeadNav"
 import Meta from "./Meta"
+import SideNav from "./SideNav"
+import Footer from "./Footer"
+
 import Container from "./shared/Container"
+import useScreenMatcher from "lib/hooks/useScreenMatcher"
+
+import { OpenModal } from "lib/context"
 
 const Layout = ({ children, title }) => {
+  const onLaptop = useScreenMatcher("lg")
+  const [open, setOpen] = React.useState(false)
+
   return (
     <>
       <Meta title={title} />
+      <OpenModal.Provider value={[open, setOpen]}>
+        <Container id="wrapper" className="mx-auto">
+          <HeadNav />
 
-      <Nav />
-      <Container className="mx-auto px-4 sm:px-2 pb-5 xl:max-w-5xl lg:max-w-4xl md:max-w-xl sm:max-w-lg max-w-md">
-        {children}
-      </Container>
+          {onLaptop ? (
+            <SideNav />
+          ) : (
+            <Modal>
+              <SideNav />
+            </Modal>
+          )}
+
+          <Container tag="main" className="pt-16 lg:pl-80 mx-auto">
+            {children}
+            {/* {onLaptop ? "ABC" : "XYZ"} */}
+          </Container>
+
+          <Footer className={"lg:pl-80 "} />
+        </Container>
+      </OpenModal.Provider>
     </>
   )
 }

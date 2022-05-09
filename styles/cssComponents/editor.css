@@ -1,0 +1,19 @@
+@layer components {
+  /** SandPack Wrapper */
+  div.custom-wrapper {
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 2px 2px rgba(25, 25, 25, 0.25);
+
+    /** SandPack Button */
+    & .custom-button {
+      background-color: theme("colors.tertiary");
+      color: white;
+      box-shadow: 0 1px 4px theme("colors.gray.400");
+
+      &:hover {
+        background-color: theme("colors.amber.500");
+        color: white;
+      }
+    }
+  }
+}

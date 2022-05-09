@@ -1,15 +1,15 @@
-/* BASE */
+/** BASE */
 @import "tailwindcss/base";
 @import "./base.css";
 
-/* COMPONENTS */
+/** COMPONENTS */
 @import "tailwindcss/components";
 @import "./components.css";
 
-/* UTILITIES */
+/** UTILITIES */
 @import "tailwindcss/utilities";
 
-/* SYNTAX HIGHLIGHTING STYLES */
+/** SYNTAX HIGHLIGHTING STYLES */
 code.language-js {
   width: max-content;
   min-width: 100%;
@@ -22,8 +22,10 @@ code.language-js {
   }
 }
 
-/* BLOG ARTICLE STYLES */
+/** BLOG ARTICLE STYLES */
 article {
+  padding-left: theme("padding.3");
+  padding-right: theme("padding.3");
   counter-reset: section;
 
   code {
@@ -90,15 +92,46 @@ article ol {
   }
 }
 
-/* useContenxt sample style */
-.panel-dark {
-  background-color: theme("colors.gray.900");
-  border-radius: theme("borderRadius.md");
-  color: theme("colors.white");
-  padding: 1rem 2rem;
-}
+/** PAGE LAYOUT */
+#wrapper {
+  display: grid;
+  height: 100vh;
 
-.button-dark {
-  padding: 4px 1rem;
-  border: 1px solid theme("colors.gray.50");
+  grid-template-areas:
+    "h h"
+    "n n"
+    "m m"
+    "f f";
+
+  grid-template-columns: auto 2fr;
+  grid-template-rows: minmax(0, auto) auto 2fr 1fr;
+
+  /** 1024px >= screen */
+  @media screen(lg) {
+    grid-template-areas:
+      "h h"
+      "n m"
+      ". f";
+    grid-template-rows: minmax(0, auto) 2fr 1fr;
+  }
+
+  & > header {
+    grid-area: h;
+    background-color: theme("colors.indigo.200");
+  }
+
+  & > nav {
+    grid-area: n;
+    background-color: theme("colors.amber.200");
+  }
+
+  & > main {
+    grid-area: m;
+    background-color: theme("colors.red.200");
+  }
+
+  & > footer {
+    grid-area: f;
+    background-color: theme("colors.green.200");
+  }
 }

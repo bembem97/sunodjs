@@ -1,10 +1,10 @@
 import Link from "next/link"
 
-const NavLink = ({ children, href }) => {
+const NavLink = ({ children, className, href }) => {
   return (
     <>
       <Link href={href}>
-        <a className="p-2 md:py-4 ">{children}</a>
+        <a className={`${className || ""}`.trim()}>{children}</a>
       </Link>
     </>
   )

@@ -45,12 +45,12 @@ const CardHeader = (
             {(author || datePosted) && (
               <div className="card__label flex w-full justify-between">
                 {author && (
-                  <span className="card__author basis-1/2 text-sm font-semibold">
+                  <span className="card__author text-sm font-semibold">
                     {author}
                   </span>
                 )}
                 {datePosted && (
-                  <span className="card__date text-sm text-gray-500 basis-1/2 text-right">
+                  <span className="card__date text-sm text-gray-500 text-right">
                     {datePosted}
                   </span>
                 )}

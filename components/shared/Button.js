@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 
-const COLORS = {
+const COLOR = {
   success: "btn-success",
   info: "btn-info",
   error: "btn-error",
   warning: "btn-warning",
+  primary: "btn-primary",
+  secondary: "btn-secondary",
+  tertiary: "btn-tertiary",
 }
 
 const Button = React.forwardRef(
@@ -15,18 +18,30 @@ const Button = React.forwardRef(
     useEffect(() => {
       switch (color) {
         case "success":
-          setBtnColor(COLORS.success)
+          setBtnColor(COLOR.success)
           break
         case "info":
-          setBtnColor(COLORS.info)
+          setBtnColor(COLOR.info)
           break
 
         case "error":
-          setBtnColor(COLORS.error)
+          setBtnColor(COLOR.error)
           break
 
         case "warning":
-          setBtnColor(COLORS.warning)
+          setBtnColor(COLOR.warning)
+          break
+
+        case "primary":
+          setBtnColor(COLOR.primary)
+          break
+
+        case "secondary":
+          setBtnColor(COLOR.secondary)
+          break
+
+        case "tertiary":
+          setBtnColor(COLOR.tertiary)
           break
 
         default:

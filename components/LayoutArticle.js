@@ -1,7 +1,6 @@
 import Container from "./shared/Container"
 import Typography from "./shared/Typography"
 import Layout from "./Layout"
-import Alert from "./shared/Alert"
 
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
@@ -22,7 +21,7 @@ const LayoutArticle = ({ children, meta }) => {
     <>
       <Layout title={meta.title}>
         <MDXProvider components={shortcodes}>
-          <Container tag="article" className="mx-auto pt-5 flex flex-col gap-5">
+          <Container tag="article" className="mx-auto flex flex-col gap-5">
             <div>
               <Typography
                 tag="h1"
@@ -38,16 +37,6 @@ const LayoutArticle = ({ children, meta }) => {
             </div>
 
             {children}
-
-            <Alert severity={`warning`}>
-              Original source &rarr;{" "}
-              <a
-                href={meta.originalSrc}
-                className="hover:underline text-sky-700 italic"
-              >
-                click here
-              </a>{" "}
-            </Alert>
           </Container>
         </MDXProvider>
       </Layout>

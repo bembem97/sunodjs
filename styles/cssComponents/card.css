@@ -1,0 +1,26 @@
+@layer components {
+  .card__body {
+    & .card__title {
+      /* @apply text-xl mb-2 font-semibold; */
+      font-size: theme("fontSize.xl");
+      margin-bottom: theme("margin.2");
+      font-weight: theme("fontWeight.semibold");
+    }
+
+    & .card__excerpt {
+      @apply line-clamp-4;
+      max-height: 100px;
+    }
+  }
+
+  .card__body,
+  .card__footer {
+    padding: theme("padding.2") theme("padding.4");
+  }
+
+  .card__footer--content {
+    padding-top: theme("padding.1");
+    padding-bottom: theme("padding.1");
+    display: flex;
+  }
+}
