@@ -10,7 +10,7 @@ const CollapseTitle = ({ children }) => {
 
   useEffect(() => {
     setCollapseItem(rotate)
-  }, [rotate])
+  }, [rotate, setCollapseItem])
 
   return (
     <div className="collapse__title flex border border-red-800 p-1">
