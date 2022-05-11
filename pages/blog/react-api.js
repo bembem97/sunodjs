@@ -17,7 +17,7 @@ const ReactAPI = ({ data }) => {
       <LayoutBlog>
         <Container className="px-2 mb-3 rounded flex flex-col gap-2">
           <Typography variant="h2" className="ml-2">
-            API Hook Reference - EXCERPT NOT WORKING
+            API Hook Reference - excerpt not working
           </Typography>
 
           {/* //* BLOG LIST: <CARD /> */}
