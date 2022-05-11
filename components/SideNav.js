@@ -1,20 +1,40 @@
-import NavLink from "./NavLink"
-import Typography from "./shared/Typography"
 import Collapse from "components/shared/Collapse"
-import CollapseMenu from "./shared/CollapseMenu"
-import CollapseTitle from "./shared/CollapseTitle"
+import CollapseMenu from "components/shared/CollapseMenu"
+import CollapseTitle from "components/shared/CollapseTitle"
+
+import NavLink from "./NavLink"
+
+import { useState, useEffect } from "react"
 
 const SideNav = () => {
+  const [reactAPI, setReactAPI] = useState([])
+
+  useEffect(() => {
+    fetch("/api/sidenav")
+      .then((res) => res.json())
+      .then((data) => setReactAPI(data))
+
+    return () => setReactAPI([])
+  }, [])
+
   return (
-    <nav className="fixed top-0 pt-16 bottom-0 w-80 flex flex-col px-2 content-center">
+    <nav className="sidenav">
       <Collapse>
-        <CollapseTitle>
-          <NavLink href={"/blog"} className="flex items-center">
-            <Typography tag="span" variant="h4">
-              API Hook Reference
-            </Typography>
-          </NavLink>
+        <CollapseTitle href={"/blog/react-api"}>
+          React JS API Hook Reference
         </CollapseTitle>
+
+        <CollapseMenu>
+          {reactAPI.map((api) => (
+            <NavLink key={api} href={`/blog/react-api/${api}`}>
+              {api}
+            </NavLink>
+          ))}
+        </CollapseMenu>
+      </Collapse>
+
+      <Collapse>
+        <CollapseTitle href={"/blog/css-tricks"}>CSS Tricks</CollapseTitle>
 
         <CollapseMenu>
           <span>a</span>
@@ -22,22 +42,6 @@ const SideNav = () => {
           <span>c</span>
         </CollapseMenu>
       </Collapse>
-
-      {/* <Collapse>
-        <CollapseTitle>
-          <NavLink href={"/blog"} className="flex items-center">
-            <Typography tag="span" variant="h4">
-              CSS Tricks
-            </Typography>
-          </NavLink>
-        </CollapseTitle>
-
-        <CollapseMenu>
-          <span>a</span>
-          <span>b</span>
-          <span>c</span>
-        </CollapseMenu>
-      </Collapse> */}
     </nav>
   )
 }

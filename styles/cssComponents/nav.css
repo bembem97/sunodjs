@@ -1,0 +1,13 @@
+@layer components {
+  .sidenav {
+    @apply fixed left-0 top-0 pt-16 bottom-0 w-80 hidden flex-col px-2 content-center gap-1;
+
+    @media screen(lg) {
+      display: flex;
+    }
+  }
+
+  #modal .sidenav {
+    display: flex;
+  }
+}

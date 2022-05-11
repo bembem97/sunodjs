@@ -14,12 +14,11 @@ module.exports = {
       },
 
       animation: {
-        "rotate-90": "rotate-90 100ms ease-in-out forwards",
-        "rotate-0": "rotate-0 100ms ease-in-out forwards",
-        "collapse-show": "collapse-show 100ms ease-in-out forwards",
-        "collapse-hide": "collapse-hide 100ms ease-in-out forwards",
-        "slide-to-right": "to-right 1000ms ease-in-out forwards",
-        "slide-to-left": "to-left 1000ms ease-in-out forwards",
+        "rotate-90": "rotate-90 150ms ease-in-out forwards",
+        "rotate-0": "rotate-0 150ms ease-in-out forwards",
+
+        "slide-to-right": "to-right 150ms ease-in-out forwards",
+        "slide-to-left": "to-left 150ms ease-in-out forwards",
       },
 
       keyframes: {
@@ -30,16 +29,6 @@ module.exports = {
         "rotate-0": {
           from: { transform: "rotate(90deg)" },
           to: { transform: "rotate(0deg)" },
-        },
-
-        "collapse-show": {
-          from: { height: "0" },
-          to: { height: "100%" },
-        },
-
-        "collapse-hide": {
-          from: { height: "100%" },
-          to: { height: "0" },
         },
 
         "to-right": {

@@ -1,7 +1,9 @@
+@import "./cssComponents/accordion.css";
 @import "./cssComponents/alert.css";
 @import "./cssComponents/button.css";
 @import "./cssComponents/card.css";
 @import "./cssComponents/collapse.css";
 @import "./cssComponents/editor.css";
 @import "./cssComponents/modal.css";
+@import "./cssComponents/nav.css";
 @import "./cssComponents/typography.css";

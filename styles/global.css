@@ -92,46 +92,4 @@ article ol {
   }
 }
 
-/** PAGE LAYOUT */
-#wrapper {
-  display: grid;
-  height: 100vh;
 
-  grid-template-areas:
-    "h h"
-    "n n"
-    "m m"
-    "f f";
-
-  grid-template-columns: auto 2fr;
-  grid-template-rows: minmax(0, auto) auto 2fr 1fr;
-
-  /** 1024px >= screen */
-  @media screen(lg) {
-    grid-template-areas:
-      "h h"
-      "n m"
-      ". f";
-    grid-template-rows: minmax(0, auto) 2fr 1fr;
-  }
-
-  & > header {
-    grid-area: h;
-    background-color: theme("colors.indigo.200");
-  }
-
-  & > nav {
-    grid-area: n;
-    background-color: theme("colors.amber.200");
-  }
-
-  & > main {
-    grid-area: m;
-    background-color: theme("colors.red.200");
-  }
-
-  & > footer {
-    grid-area: f;
-    background-color: theme("colors.green.200");
-  }
-}

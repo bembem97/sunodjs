@@ -2,25 +2,26 @@ import { Collapsible } from "./Collapse"
 import { useRef, useContext, useEffect, useState } from "react"
 
 const CollapseMenu = ({ children, className, ...props }) => {
-  const [collapseItem, _] = useContext(Collapsible)
-  const [collapseDown, setCollapseDown] = useState(null)
+  const [itemCollapse, _] = useContext(Collapsible)
+  const [itemHeight, setItemHeight] = useState(null)
+
+  const ref = useRef(null)
 
   useEffect(() => {
-    collapseItem
-      ? setCollapseDown("h-full")
-      : collapseItem === null
-      ? setCollapseDown("h-0")
-      : setCollapseDown("h-0")
-  }, [collapseDown, collapseItem])
+    const itemRef = ref.current
+
+    itemCollapse ? setItemHeight(itemRef.scrollHeight) : setItemHeight(0)
+  }, [itemHeight, itemCollapse])
 
   return (
     <div
-      className={`collapse__menu border border-green-500 ${collapseDown} ${
-        className || ""
-      }`.trim()}
+      className={`collapse__menu ${className || ""}`.trim()}
       {...props}
+      style={{ height: `${itemHeight}px` }}
     >
-      {children}
+      <div className={`collapse__item `.trim()} ref={ref}>
+        {children}
+      </div>
     </div>
   )
 }

@@ -1,11 +1,12 @@
 import Container from "./shared/Container"
 import Typography from "./shared/Typography"
 import Layout from "./Layout"
+import LayoutBlog from "./LayoutBlog"
 
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 
-const LayoutArticle = ({ children, meta }) => {
+const LayoutArticle = ({ children, meta, data }) => {
   const shortcodes = {
     h1: (props) => <Typography {...props} tag="h1" variant="h1" />,
     h2: (props) => <Typography {...props} tag="h2" variant="h2" />,
@@ -20,41 +21,30 @@ const LayoutArticle = ({ children, meta }) => {
   return (
     <>
       <Layout title={meta.title}>
-        <MDXProvider components={shortcodes}>
-          <Container tag="article" className="mx-auto flex flex-col gap-5">
-            <div>
-              <Typography
-                tag="h1"
-                className="mb-3 text-2xl lg:text-4xl"
-                variant="h1"
-              >
-                {meta.title}
-              </Typography>
-              <Typography className="sub flex flex-wrap gap-1">
-                <span className="break-words">by {meta.author}</span>
-                <span> &#8212; {meta.date}</span>
-              </Typography>
-            </div>
+        <LayoutBlog>
+          <MDXProvider components={shortcodes}>
+            <Container tag="article" className="mx-auto flex flex-col gap-5">
+              <div>
+                <Typography
+                  tag="h1"
+                  className="mb-3 text-2xl lg:text-4xl"
+                  variant="h1"
+                >
+                  {meta.title}
+                </Typography>
+                <Typography className="sub flex flex-wrap gap-1">
+                  <span className="break-words">by {meta.author}</span>
+                  <span> &#8212; {meta.date}</span>
+                </Typography>
+              </div>
 
-            {children}
-          </Container>
-        </MDXProvider>
+              {children}
+            </Container>
+          </MDXProvider>
+        </LayoutBlog>
       </Layout>
     </>
   )
 }
-
-export const Link = ({ href }) => (
-  <>
-    <a
-      rel="noreferrer"
-      href={href}
-      target="_blank"
-      className="font-bold italic text-sky-500 underline w-fit"
-    >
-      Try this demo &larr;
-    </a>
-  </>
-)
 
 export default LayoutArticle

@@ -4,7 +4,7 @@ const styles = "fill-black stroke-black stroke-2"
 
 const IconNav = ({ className, ...props }) => {
   return (
-    <Button className={`${className}`.trim()} {...props}>
+    <Button className={`icon__nav ${className}`.trim()} {...props}>
       <svg width="32" height="32" viewBox="0 0 32 32" version="1.1">
         <g>
           <rect

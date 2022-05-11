@@ -1,23 +1,29 @@
 import IconNext from "./IconNext"
 import Button from "./Button"
+import NavLink from "components/NavLink"
+import Typography from "components/shared/Typography"
 
 import { useState, useContext, useEffect } from "react"
 import { Collapsible } from "./Collapse"
 
-const CollapseTitle = ({ children }) => {
+const CollapseTitle = ({ children, href }) => {
   const [rotate, setRotation] = useState(null)
-  const [_, setCollapseItem] = useContext(Collapsible)
+  const [_, setItemCollapse] = useContext(Collapsible)
 
   useEffect(() => {
-    setCollapseItem(rotate)
-  }, [rotate, setCollapseItem])
+    setItemCollapse(rotate)
+  }, [rotate, setItemCollapse])
 
   return (
-    <div className="collapse__title flex border border-red-800 p-1">
-      {children}
+    <div className="collapse__title flex p-1">
+      <NavLink href={href || ""} className="flex items-center">
+        <Typography tag="span" className="font-semibold hover:underline">
+          {children}
+        </Typography>
+      </NavLink>
 
       <Button
-        className="flex items-center py-0 text-4xl"
+        className="flex items-center py-0"
         onClick={() => setRotation(!rotate)}
       >
         <IconNext rotate={rotate} />

@@ -6,9 +6,17 @@
     gap: 1px;
   }
 
+  .collapse__title > button {
+    flex-grow: 1;
+  }
+
   .collapse__menu {
-    transition: height 1150ms;
-    @apply h-0 flex flex-col;
+    transition: height 150ms;
+    @apply relative overflow-hidden;
+
+    & .collapse__item {
+      @apply pl-4 flex flex-col absolute bottom-0;
+    }
   }
 
   .rotate {

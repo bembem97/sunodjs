@@ -128,6 +128,15 @@ Et ea ullamco ipsum cillum officia ut ex.
 
 Deserunt quis cupidatat et nulla officia adipisicing laborum. Irure irure mollit minim cillum duis labore ad duis qui. Incididunt occaecat minim ut excepteur excepteur. Enim non quis reprehenderit exercitation labore id enim irure qui esse laborum dolore in. Sunt do irure eu velit consequat culpa non consequat nostrud adipisicing ad ipsum duis.
 
-export default ({ children }) => (
-  <LayoutArticle meta={meta}>{children}</LayoutArticle>
+export default ({ children, data }) => (
+  <LayoutArticle meta={meta} data={data}>
+    {children}
+  </LayoutArticle>
 )
+
+import { getSortedPostsData } from "lib/posts"
+
+export async function getStaticProps() {
+  const data = getSortedPostsData()
+  return { props: { data } }
+}

@@ -17,8 +17,8 @@ const Modal = ({ children, ...props }) => {
     ? ""
     : "animate-slide-to-left"
 
-  const delayClose = () => {
-    const timer = setTimeout(() => setOpen(false), 500)
+  const closeThruWindow = () => {
+    setOpen(false)
   }
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Modal = ({ children, ...props }) => {
   // * Modal Content
   const MyContainer = (
     <div {...props} className="modal__container">
-      <div className="overlay" ref={overlayRef} onClick={delayClose}></div>
+      <div className="overlay" ref={overlayRef} onClick={closeThruWindow}></div>
 
       <Button onClick={() => setOpen(false)}>&times;</Button>
 
