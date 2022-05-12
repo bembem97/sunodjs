@@ -1,9 +1,6 @@
 import React from "react"
-
 import Layout from "components/Layout"
-
 import Typography from "components/shared/Typography"
-
 import NavLink from "components/NavLink"
 
 export default function Posts({ data }) {
