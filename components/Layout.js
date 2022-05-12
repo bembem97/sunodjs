@@ -9,9 +9,21 @@ import Footer from "./Footer"
 import Container from "./shared/Container"
 
 import { OpenModal } from "lib/context"
+import Modal from "./shared/Modal"
+import useMediaQuery from "lib/hooks/useMediaQuery"
 
 const Layout = ({ children, title }) => {
   const [open, setOpen] = React.useState(false)
+  const media = useMediaQuery("lg", true)
+  const media2 = useMediaQuery("lg", undefined, "max")
+
+  React.useEffect(() => {
+    open
+      ? document.body.classList.add("overflow-hidden")
+      : document.body.classList.remove("overflow-hidden")
+
+    return () => document.body.classList.remove("overflow-hidden")
+  }, [open])
 
   return (
     <>
@@ -21,9 +33,15 @@ const Layout = ({ children, title }) => {
         <Container id="wrapper" className="mx-auto">
           <HeadNav />
 
-          <SideNav />
+          {media2 && (
+            <Modal>
+              <SideNav />
+            </Modal>
+          )}
 
-          <Container tag="main" className="pt-16 mx-auto">
+          {media && <SideNav />}
+
+          <Container tag="main" className="pt-16 mx-auto lg:pl-80">
             {children}
           </Container>
 

@@ -17,8 +17,10 @@ module.exports = {
         "rotate-90": "rotate-90 150ms ease-in-out forwards",
         "rotate-0": "rotate-0 150ms ease-in-out forwards",
 
-        "slide-to-right": "to-right 150ms ease-in-out forwards",
-        "slide-to-left": "to-left 150ms ease-in-out forwards",
+        "slide-to-right": "to-right 300ms ease-out forwards",
+        "slide-to-left": "to-left 300ms linear forwards",
+
+        "get-darker": "get-darker 200ms ease-in forwards",
       },
 
       keyframes: {
@@ -39,6 +41,11 @@ module.exports = {
         "to-left": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-100%)" },
+        },
+
+        "get-darker": {
+          from: { backgroundColor: "rgba(15, 15, 15, 0)" },
+          to: { backgroundColor: "rgba(15, 15, 15, 0.4)" },
         },
       },
     },

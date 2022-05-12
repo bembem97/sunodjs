@@ -7,18 +7,25 @@ import { OpenModal } from "lib/context"
 
 const Modal = ({ children, ...props }) => {
   const [mounted, setMounted] = useState(false)
+  const [timer, setTimer] = useState(false)
+
   const [open, setOpen] = useContext(OpenModal)
   const overlayRef = useRef(null)
 
   // * Slide sidenav to right/left animation
-  const sidenavSlideFx = open
-    ? "animate-slide-to-right"
-    : open === null
-    ? ""
-    : "animate-slide-to-left"
+  const sidenavSlideFx = open ? "animate-slide-to-right" : ""
 
+  // * Overlay transition
+  const getDarker = open ? "animate-get-darker" : ""
+
+  // * Click the window to close modal
   const closeThruWindow = () => {
-    setOpen(false)
+    setTimer(true)
+
+    setTimeout(() => {
+      setOpen(false)
+      setTimer(false)
+    }, 400)
   }
 
   useEffect(() => {
@@ -30,11 +37,21 @@ const Modal = ({ children, ...props }) => {
   // * Modal Content
   const MyContainer = (
     <div {...props} className="modal__container">
-      <div className="overlay" ref={overlayRef} onClick={closeThruWindow}></div>
+      <div
+        className={`overlay ${getDarker}`.trim()}
+        ref={overlayRef}
+        onClick={closeThruWindow}
+      ></div>
 
       <Button onClick={() => setOpen(false)}>&times;</Button>
 
-      <div className={`content ${sidenavSlideFx}`}>{children}</div>
+      <div
+        className={`content ${sidenavSlideFx} ${
+          timer && "animate-slide-to-left"
+        }`.trim()}
+      >
+        {children}
+      </div>
     </div>
   )
 
