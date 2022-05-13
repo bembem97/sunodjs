@@ -30,7 +30,7 @@ const Layout = ({ children, title }) => {
       <Meta title={title} />
 
       <OpenModal.Provider value={[open, setOpen]}>
-        <Container id="wrapper" className="mx-auto">
+        <Container id="wrapper" noContainer className="mx-auto xl:container">
           <HeadNav />
 
           {media2 && (
@@ -41,11 +41,11 @@ const Layout = ({ children, title }) => {
 
           {media && <SideNav />}
 
-          <Container tag="main" className="pt-16 mx-auto lg:pl-80">
+          <Container tag="main" id="main" className="pt-16 mx-auto">
             {children}
           </Container>
 
-          <Footer className={"lg:pl-80 "} />
+          <Footer className={"footer"} />
         </Container>
       </OpenModal.Provider>
     </>

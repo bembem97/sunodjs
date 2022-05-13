@@ -5,12 +5,12 @@ import useMediaQuery from "lib/hooks/useMediaQuery"
 import { useContext } from "react"
 import { OpenModal } from "lib/context"
 
-const HeadNav = () => {
+const HeadNav = ({ className, ...props }) => {
   const [_, setOpen] = useContext(OpenModal)
   const media = useMediaQuery("lg", _, "max")
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary border-b-gray-200 border">
+    <header className="headnav">
       <nav className="flex justify-center ">
         {/*// * SHOW NAV ICON WHEN VIEWPORT TO 1023 */}
         {media && <IconNav onClick={() => setOpen(true)} className="mr-auto" />}

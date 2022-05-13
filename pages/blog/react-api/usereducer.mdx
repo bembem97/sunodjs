@@ -8,6 +8,7 @@ excerpt: Nulla id minim cupidatat ullamco elit ad ea occaecat consectetur id. Ve
 
 import Container from "components/shared/Container"
 import LayoutArticle from "components/LayoutArticle.js"
+
 import {
   IncrementCounter,
   FormObject,
@@ -20,6 +21,23 @@ export const meta = {
   title: title,
   author: author,
   date: date,
+  Toc: () => (
+    <ol>
+      <li>
+        <a href="#adding-a-reducer-to-a-component">
+          Adding a reducer to a component
+        </a>
+      </li>
+      <li>
+        <a href="#writing-the-reducer-function">Writing the reducer function</a>
+      </li>
+      <li>
+        <a href="#avoiding-recreating-the-initial-state">
+          Avoiding recreating the initial state
+        </a>
+      </li>
+    </ol>
+  ),
 }
 
 #### Culpa `useReducer` deserunt esse amet culpa amet non.
@@ -29,12 +47,6 @@ Dolor proident reprehenderit mollit est.
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, init)
 ```
-
-> #### Table of contents
->
-> 1. [Adding a reducer to a component](#adding-a-reducer-to-a-component)
-> 2. [Writing the reducer function](#writing-the-reducer-function)
-> 3. [Avoiding recreating the initial state](#avoiding-recreating-the-initial-state)
 
 Anim quis tempor occaecat voluptate velit commodo mollit exercitation tempor qui laborum. Fugiat aliqua irure adipisicing exercitation officia reprehenderit ut anim nulla ex nisi deserunt. Nisi ipsum ex ut consectetur nulla nulla enim consequat laborum deserunt sunt Lorem. Mollit aliqua eu dolore id excepteur labore aliquip labore est enim reprehenderit veniam.
 

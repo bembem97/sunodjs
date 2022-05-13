@@ -16,8 +16,11 @@ const CollapseTitle = ({ children, href }) => {
 
   return (
     <div className="collapse__title flex p-1">
-      <NavLink href={href || ""} className="flex items-center">
-        <Typography tag="span" className="font-semibold hover:underline">
+      <NavLink
+        href={href || ""}
+        className="nav__link flex items-center hover:underline"
+      >
+        <Typography tag="span" className="font-semibold ">
           {children}
         </Typography>
       </NavLink>

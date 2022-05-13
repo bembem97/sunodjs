@@ -7,12 +7,24 @@ excerpt: Sunt consectetur laborum duis in labore veniam voluptate cupidatat inci
 ---
 
 import Container from "components/shared/Container"
-import LayoutArticle from "components/LayoutArticle.js"
+import LayoutArticle from "components/LayoutArticle"
 
 export const meta = {
   title: title,
   author: author,
   date: date,
+  Toc: () => (
+    <ol>
+      <li>
+        <a href="#creating-context">Creating context</a>
+      </li>
+      <li>
+        <a href="#importing-and-exporting-context-from-a-file">
+          Importing and exporting context from a file
+        </a>
+      </li>
+    </ol>
+  ),
 }
 
 #### `createContext` consectetur eu tempor ex dolore eiusmod.
@@ -23,11 +35,6 @@ Magna irure commodo mollit occaecat commodo aliquip aliquip enim proident tempor
 const SomeContext = createContext(defaultValue)
 ```
 
-> ### Table of contents
->
-> 1. [Creating context](#creating-context)
-> 2. [Importing and exporting context from a file](#importing-and-exporting-context-from-a-file)
-
 ## Creating context
 
 Quis aliquip ex velit mollit nostrud pariatur.
@@ -35,11 +42,10 @@ Quis aliquip ex velit mollit nostrud pariatur.
 Minim ipsum irure anim labore Lorem irure minim anim enim.
 
 ```js
-import { createContext } from 'react';
+import { createContext } from "react"
 
-const ThemeContext = createContext('light');
-const AuthContext = createContext(null);
-}
+const ThemeContext = createContext("light")
+const AuthContext = createContext(null)
 ```
 
 Sit aliqua irure sunt anim deserunt excepteur in cupidatat id esse ipsum ex. Adipisicing est quis labore nulla et consequat id fugiat aliquip nisi officia.

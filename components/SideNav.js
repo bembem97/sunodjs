@@ -6,7 +6,7 @@ import NavLink from "./NavLink"
 
 import { useState, useEffect } from "react"
 
-const SideNav = () => {
+const SideNav = ({ className, ...props }) => {
   const [reactAPI, setReactAPI] = useState([])
 
   useEffect(() => {
@@ -18,7 +18,11 @@ const SideNav = () => {
   }, [])
 
   return (
-    <nav className="sidenav">
+    <nav
+      {...props}
+      id="sidenav"
+      className={`sidenav ${className || ""}`.trim()}
+    >
       <Collapse>
         <CollapseTitle href={"/blog/react-api"}>
           React JS API Hook Reference
@@ -26,7 +30,11 @@ const SideNav = () => {
 
         <CollapseMenu>
           {reactAPI.map((api) => (
-            <NavLink key={api} href={`/blog/react-api/${api}`}>
+            <NavLink
+              key={api}
+              href={`/blog/react-api/${api}`}
+              className="hover:underline"
+            >
               {api}
             </NavLink>
           ))}

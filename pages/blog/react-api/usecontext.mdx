@@ -9,6 +9,7 @@ excerpt: Tempor incididunt quis esse pariatur est. Nulla exercitation incididunt
 import Container from "components/shared/Container"
 import LayoutArticle from "components/LayoutArticle"
 import Alert from "components/shared/Alert"
+
 import { Link } from "components/LayoutArticle.js"
 import {
   UpdateThemeViaContext,
@@ -24,6 +25,61 @@ export const meta = {
   title: title,
   author: author,
   date: date,
+  Toc: () => (
+    <ol>
+      <li>
+        <a href="#passing-data-deeply-into-the-tree">
+          Passing data deeply into the tree
+        </a>
+        <ol>
+          <li>
+            <a href="#setting-theme-to-dark">Setting theme to dark</a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#updating-data-passed-via-context">
+          Updating data passed via context
+        </a>
+        <ol>
+          <li>
+            <a href="#logging-in">Logging in</a>
+          </li>
+          <li>
+            <a href="#toggle-theme">Toggle theme</a>
+          </li>
+          <li>
+            <a href="#multiple-context">Multiple context</a>
+          </li>
+          <li>
+            <a href="#extracting-providers-to-a-component">
+              Extracting providers to a component
+            </a>
+          </li>
+          <li>
+            <a href="#scaling-up-with-context-and-a-reducer">
+              Scaling up with context and a reducer
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#specifying-a-fallback-default-value">
+          Specifying a fallback default value
+        </a>
+      </li>
+      <li>
+        <a href="#overriding-context-for-a-part-of-the-tree">
+          Overriding context for a part of the tree
+        </a>
+      </li>
+      <li>
+        <a href="#optimizing-re-renders-when-passing-objects-and-functions">
+          Optimizing re-renders when passing objects and functions
+        </a>
+      </li>
+    </ol>
+  ),
 }
 
 #### `useContext` quis nostrud irure elit laborum ullamco veniam Lorem ad ipsum mollit irure id.
@@ -33,20 +89,6 @@ Ad excepteur mollit cillum et nostrud pariatur ea aliqua amet.
 ```js
 const value = useContext(SomeContext)
 ```
-
-> ### Table of contents
->
-> 1. [Passing data deeply into the tree](#passing-data-deeply-into-the-tree)
->    1. [Setting theme to dark](#setting-theme-to-dark)
-> 2. [Updating data passed via context](#updating-data-passed-via-context)
->    1. [Logging in](#logging-in)
->    2. [Toggle theme](#toggle-theme)
->    3. [Multiple context](#multiple-context)
->    4. [Extracting providers to a component](#extracting-providers-to-a-component)
->    5. [Scaling up with context and a reducer](#scaling-up-with-context-and-a-reducer)
-> 3. [Specifying a fallback default value](#specifying-a-fallback-default-value)
-> 4. [Overriding context for a part of the tree](#overriding-context-for-a-part-of-the-tree)
-> 5. [Optimizing re-renders when passing objects and functions](#optimizing-re-renders-when-passing-objects-and-functions)
 
 ---
 

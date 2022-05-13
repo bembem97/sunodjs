@@ -8,7 +8,7 @@ excerpt: Aliqua tempor dolor Lorem reprehenderit ex occaecat officia deserunt co
 
 import Container from "components/shared/Container"
 import LayoutArticle from "components/LayoutArticle.js"
-import Link from "next/link"
+
 import {
   Checkbox,
   TextField,
@@ -29,6 +29,85 @@ export const meta = {
   title: title,
   author: author,
   date: date,
+  Toc: () => (
+    <ol>
+      <li>
+        <a href="#adding-state-to-a-component">Adding state to a component</a>
+        <ol>
+          <li>
+            <a href="#counter">Counter</a>
+          </li>
+          <li>
+            <a href="#textfield">Textfield</a>
+          </li>
+          <li>
+            <a href="#checkbox">Checkbox</a>
+          </li>
+          <li>
+            <a href="#form">Form</a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#updating-state-based-on-the-previous-state">
+          Updating state based on the previous state
+        </a>
+        <ol>
+          <li>
+            <a href="#passing-the-updater-function">
+              Passing the updater function
+            </a>
+          </li>
+          <li>
+            <a href="#passing-the-next-state-directly">
+              Passing the next state directly
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#updating-objects-and-arrays-in-state">
+          Updating objects and arrays in state
+        </a>
+        <ol>
+          <li>
+            <a href="#form-object">Form (object)</a>
+          </li>
+          <li>
+            <a href="#form-nested-object">Form (nested object)</a>
+          </li>
+          <li>
+            <a href="#list-array">List (array)</a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#avoiding-recreating-the-initial-state">
+          Avoiding recreating the initial state
+        </a>
+        <ol>
+          <li>
+            <a href="#passing-the-initializer-function">
+              Passing the initializer function
+            </a>
+          </li>
+          <li>
+            <a href="#passing-the-initial-state-directly">
+              Passing the initial state directly
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#resetting-state-with-a-key">Resetting state with a key</a>
+      </li>
+      <li>
+        <a href="#storing-information-from-previous-renders">
+          Storing information from previous renders
+        </a>
+      </li>
+    </ol>
+  ),
 }
 
 #### Ut in `useState` id incididunt sit. Laboris velit sint est dolore eu do exercitation non quis ipsum labore quis velit magna.
@@ -38,26 +117,6 @@ Ad excepteur mollit cillum et nostrud pariatur ea aliqua amet.
 ```js
 const [state, setState] = useState(initialState)
 ```
-
-> #### Table of contents
->
-> 1. [Adding state to a component](#adding-state-to-a-component)
->    1. [Counter](#counter)
->    2. [Textfield](#textfield)
->    3. [Checkbox](#checkbox)
->    4. [Form](#form)
-> 2. [Updating state based on the previous state](#updating-state-based-on-the-previous-state)
->    1. [Passing the updater function](#passing-the-updater-function)
->    2. [Passing the next state directly](#passing-the-next-state-directly)
-> 3. [Updating objects and arrays in state](#updating-objects-and-arrays-in-state)
->    1. [Form (object)](#form-object)
->    2. [Form (nested object)](#form-nested-object)
->    3. [List (array)](#list-array)
-> 4. [Avoiding recreating the initial state](#avoiding-recreating-the-initial-state)
->    1. [Passing the initializer function](#passing-the-initializer-function)
->    2. [Passing the initial state directly](#passing-the-initial-state-directly)
-> 5. [Resetting state with a key](#resetting-state-with-a-key)
-> 6. [Storing information from previous renders](#storing-information-from-previous-renders)
 
 Excepteur pariatur cillum dolor est elit excepteur Lorem ipsum veniam aliqua occaecat sit anim.
 

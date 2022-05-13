@@ -8,6 +8,8 @@ excerpt: Consectetur voluptate sunt magna irure commodo Lorem ad reprehenderit m
 
 import Container from "components/shared/Container"
 import Alert from "components/shared/Alert"
+import TableOfContents from "components/page/TableOfContents"
+
 import LayoutArticle from "components/LayoutArticle"
 import {
   ClickCounter,
@@ -17,13 +19,60 @@ import {
   PlayAndPauseVideo,
   ExposeRefToComponent,
 } from "components/page/useref"
+
 import { Link } from "components/LayoutArticle.js"
 
 export const meta = {
   title: title,
   author: author,
   date: date,
-  originalSrc: "https://dmitripavlutin.com/react-useref-guide/",
+  Toc: () => (
+    <ol>
+      <li>
+        <a href="#referencing-a-value-with-a-ref">
+          Referencing a value with a ref
+        </a>
+        <ol>
+          <li>
+            <a href="#click-counter">Click counter</a>
+          </li>
+          <li>
+            <a href="#stopwatch">Stopwatch</a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#manipulating-the-dom-with-a-ref">
+          Manipulating the DOM with a ref
+        </a>
+        <ol>
+          <li>
+            <a href="#focusing-a-text-input">Focusing a text input</a>
+          </li>
+          <li>
+            <a href="#scrolling-an-image-into-view">
+              Scrolling an image into view
+            </a>
+          </li>
+          <li>
+            <a href="#playing-and-pausing-a-video">
+              Playing and pausing a video
+            </a>
+          </li>
+          <li>
+            <a href="#exposing-a-ref-to-your-own-component">
+              Exposing a ref to your own component
+            </a>
+          </li>
+        </ol>
+      </li>
+      <li>
+        <a href="#avoiding-recreating-the-ref-contents">
+          Avoiding recreating the ref contents
+        </a>
+      </li>
+    </ol>
+  ),
 }
 
 #### Consectetur eu laborum excepteur dolor et nisi.
@@ -33,18 +82,6 @@ Exercitation quis consequat enim quis ea aute nostrud culpa nisi.
 ```js
 const ref = useRef(initialValue)
 ```
-
-> #### Table of contents
->
-> 1. [Referencing a value with a ref](#referencing-a-value-with-a-ref)
->    1. [Click counter](#click-counter)
->    2. [Stopwatch](#stopwatch)
-> 2. [Manipulating the DOM with a ref](#manipulating-the-dom-with-a-ref)
->    1. [Focusing a text input](#focusing-a-text-input)
->    2. [Scrolling an image into view](#scrolling-an-image-into-view)
->    3. [Playing and pausing a video](#playing-and-pausing-a-video)
->    4. [Exposing a ref to your own component](#exposing-a-ref-to-your-own-component)
-> 3. [Avoiding recreating the ref contents](#avoiding-recreating-the-ref-contents)
 
 ## Referencing a value with a ref
 
