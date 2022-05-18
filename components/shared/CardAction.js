@@ -7,6 +7,7 @@ const CardAction = ({ children, label, button, ...props }) => {
         }`.trim()}
       >
         <button>{button}</button>
+
         {label && (
           <span className={`text-xs ${props.labelStyle || ""}`.trim()}>
             {label}

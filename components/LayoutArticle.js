@@ -1,12 +1,11 @@
 import Container from "./shared/Container"
 import Typography from "./shared/Typography"
-import Layout from "./Layout"
-import TableOfContents from "./page/TableOfContents"
+import LayoutBlog from "./LayoutBlog"
 
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 
-const LayoutArticle = ({ children, meta, data }) => {
+const LayoutArticle = ({ children, meta }) => {
   const { Toc } = meta
 
   const shortcodes = {
@@ -22,9 +21,10 @@ const LayoutArticle = ({ children, meta, data }) => {
 
   return (
     <>
-      <Layout title={meta.title}>
-        <MDXProvider components={shortcodes}>
-          <Container tag="article" id="article" className="mx-auto ">
+      <MDXProvider components={shortcodes}>
+        <LayoutBlog title={meta.title} Toc={Toc}>
+          <Container tag="article">
+            {/* // * Contents */}
             <div id="content" className="flex flex-col gap-5">
               <Typography
                 tag="h1"
@@ -33,6 +33,7 @@ const LayoutArticle = ({ children, meta, data }) => {
               >
                 {meta.title}
               </Typography>
+
               <Typography className="sub flex flex-wrap gap-1">
                 <span className="break-words">by {meta.author}</span>
                 <span> &#8212; {meta.date}</span>
@@ -40,11 +41,9 @@ const LayoutArticle = ({ children, meta, data }) => {
 
               {children}
             </div>
-
-            <TableOfContents>{Toc ? <Toc /> : "No Data"}</TableOfContents>
           </Container>
-        </MDXProvider>
-      </Layout>
+        </LayoutBlog>
+      </MDXProvider>
     </>
   )
 }

@@ -2,7 +2,7 @@ import Link from "next/link"
 import React from "react"
 
 import Container from "components/shared/Container"
-import Layout from "components/Layout"
+import LayoutBlog from "components/LayoutBlog"
 import Card from "components/shared/Card"
 import CardHeader from "components/shared/CardHeader"
 import CardBody from "components/shared/CardBody"
@@ -12,8 +12,8 @@ import Typography from "components/shared/Typography"
 
 const ReactAPI = ({ data }) => {
   return (
-    <Layout title="Posts">
-      <Container className="px-2 mb-3 rounded flex flex-col gap-2">
+    <LayoutBlog title="React API">
+      <Container className="px-2 mb-3 rounded flex flex-col gap-5 lg:pr-20">
         <Typography variant="h2" className="ml-2">
           API Hook Reference
         </Typography>
@@ -24,7 +24,7 @@ const ReactAPI = ({ data }) => {
 
           return (
             <React.Fragment key={index}>
-              <Card className="bg-secondary">
+              <Card className="bg-secondary shadow-md">
                 <CardHeader datePosted={date} className="ml-auto" />
                 <CardBody title={title} titleClassName="text-3xl">
                   {excerpt}
@@ -32,7 +32,11 @@ const ReactAPI = ({ data }) => {
 
                 <CardFooter>
                   <Link href={`/blog/react-api/${article.slug}`} passHref>
-                    <Button tag="a" color="warning">
+                    <Button
+                      tag="a"
+                      color="tertiary"
+                      className="text-white font-semibold"
+                    >
                       Read more &rarr;
                     </Button>
                   </Link>
@@ -44,7 +48,7 @@ const ReactAPI = ({ data }) => {
       </Container>
 
       <hr />
-    </Layout>
+    </LayoutBlog>
   )
 }
 

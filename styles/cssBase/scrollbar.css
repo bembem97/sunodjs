@@ -1,0 +1,14 @@
+@layer base {
+  .custom-scrollbar {
+    &::-webkit-scrollbar {
+      display: block;
+      width: 3px;
+      background: theme("colors.gray.200");
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: theme("colors.tertiary");
+      width: 1rem;
+    }
+  }
+}

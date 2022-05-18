@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 const CardHeader = (
-  { author, avatar, datePosted, thumbnail, ...props },
+  { author, avatar, datePosted, thumbnail, width, height, ...props },
   ref
 ) => {
   return (
@@ -10,14 +10,14 @@ const CardHeader = (
         {...props}
         className={`card__header ${props.className || ""}`.trim()}
       >
-        {/* //todo: THUMBNAIL */}
+        {/* //*: THUMBNAIL */}
         {thumbnail && (
           <div className="card__thumbnail pt-3 bg-emerald-100">
             <Image
               src={thumbnail}
               alt="thumbnail"
-              width={75}
-              height={50}
+              width={width || 75}
+              height={height || 50}
               layout="responsive"
               quality={30}
               className="card__thumbnail-image object-cover"
@@ -25,7 +25,7 @@ const CardHeader = (
           </div>
         )}
 
-        {/* //todo:  */}
+        {/* //*: Card Header (author info) */}
         {(avatar || author || datePosted) && (
           <div className={`card__header-content flex py-2 px-4`}>
             {/* // todo: AVATAR */}
@@ -41,7 +41,7 @@ const CardHeader = (
               </span>
             )}
 
-            {/* //todo: HEADER LABEL */}
+            {/* //*: HEADER LABEL */}
             {(author || datePosted) && (
               <div className="card__label flex w-full justify-between">
                 {author && (

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import React from "react"
+import { useState, useEffect } from "react"
 
 import HeadNav from "./HeadNav"
 import Meta from "./Meta"
@@ -7,17 +7,16 @@ import SideNav from "./SideNav"
 import Footer from "./Footer"
 
 import Container from "./shared/Container"
+import Modal from "./shared/Modal"
 
 import { OpenModal } from "lib/context"
-import Modal from "./shared/Modal"
 import useMediaQuery from "lib/hooks/useMediaQuery"
 
 const Layout = ({ children, title }) => {
-  const [open, setOpen] = React.useState(false)
-  const media = useMediaQuery("lg", true)
-  const media2 = useMediaQuery("lg", undefined, "max")
+  const [open, setOpen] = useState(false)
+  const media = useMediaQuery("lg", undefined, "max")
 
-  React.useEffect(() => {
+  useEffect(() => {
     open
       ? document.body.classList.add("overflow-hidden")
       : document.body.classList.remove("overflow-hidden")
@@ -30,23 +29,21 @@ const Layout = ({ children, title }) => {
       <Meta title={title} />
 
       <OpenModal.Provider value={[open, setOpen]}>
-        <Container id="wrapper" noContainer className="mx-auto xl:container">
+        <div id="web">
           <HeadNav />
 
-          {media2 && (
+          {media && (
             <Modal>
               <SideNav />
             </Modal>
           )}
-
-          {media && <SideNav />}
 
           <Container tag="main" id="main" className="pt-16 mx-auto">
             {children}
           </Container>
 
           <Footer className={"footer"} />
-        </Container>
+        </div>
       </OpenModal.Provider>
     </>
   )

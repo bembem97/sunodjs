@@ -1,46 +1,36 @@
 @layer base {
-  #article {
-    display: grid;
-    grid-template-areas: "content toc";
-    grid-template-columns: 2fr auto;
-    grid-template-rows: auto;
-    gap: theme("gap.2");
-  }
-
-  #content {
-    grid-area: content;
-  }
-
-  #toc {
-    grid-area: toc;
-  }
-
   #wrapper {
     display: grid;
-    grid-template-rows: repeat(2, auto);
-    gap: theme("gap.2");
-    grid-template-areas:
-      "main"
-      "footer";
-    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
 
     @media screen(lg) {
+      gap: theme("gap.4");
+      grid-template-rows: 2fr auto;
+      grid-template-columns: theme("width.52") 1fr;
       grid-template-areas:
-        "sidenav main"
-        "sidenav footer";
-      grid-template-columns: minmax(auto, theme("width.56")) 1fr;
+        "s a"
+        "s a";
+    }
+
+    @media screen(xl) {
+      grid-template-rows: 1fr auto;
+      grid-template-columns: theme("width.48") 1fr minmax(
+          auto,
+          theme("width.60")
+        );
+      grid-template-areas: "s a t";
     }
   }
 
   #sidenav {
-    grid-area: sidenav;
+    grid-area: s;
   }
 
-  #main {
-    grid-area: main;
+  #article {
+    grid-area: a;
   }
 
-  #footer {
-    grid-area: footer;
+  #toc {
+    grid-area: t;
   }
 }

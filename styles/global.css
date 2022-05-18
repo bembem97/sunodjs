@@ -68,3 +68,8 @@ article ol {
     list-style-type: disc;
   }
 }
+
+/** Scroll Padding */
+:root {
+  scroll-padding-top: 70px;
+}

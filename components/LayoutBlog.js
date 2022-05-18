@@ -1,15 +1,22 @@
 import SideNav from "./SideNav"
-import Modal from "./shared/Modal"
+import Layout from "./Layout"
 
-const LayoutBlog = ({ children }) => {
+import TableOfContents from "./page/TableOfContents"
+
+const LayoutBlog = ({ children, title, Toc, ...props }) => {
   return (
     <>
-      <div>
-        <Modal>
+      <Layout title={title}>
+        <div id="wrapper">
           <SideNav />
-        </Modal>
-      </div>
-      <div className="lg:pl-80">{children}</div>
+
+          <div id="article" className="w-screen sm:w-auto">
+            {children}
+          </div>
+
+          <TableOfContents>{Toc ? <Toc /> : null}</TableOfContents>
+        </div>
+      </Layout>
     </>
   )
 }

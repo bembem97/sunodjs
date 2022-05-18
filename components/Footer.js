@@ -1,8 +1,13 @@
 const Footer = ({ className, ...props }) => {
   return (
-    <footer className={`${className || ""}`.trim()} {...props}>
-      <h1>Hello Footer</h1>
-      <h1>Hello Footer</h1>
+    <footer
+      id="footer"
+      className={`${className || ""} bg-emerald-50 py-10 mt-5`.trim()}
+      {...props}
+    >
+      <div className="lg:max-w-5xl mx-auto px-3">
+        <div className="mx-auto w-fit font-semibold">&copy; Bembem</div>
+      </div>
     </footer>
   )
 }

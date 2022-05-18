@@ -1,7 +1,6 @@
 @layer components {
   article {
     .toc {
-      /* background-color: theme("colors.gray.300"); */
       padding: theme("padding.2");
       position: sticky;
       top: theme("padding.16");

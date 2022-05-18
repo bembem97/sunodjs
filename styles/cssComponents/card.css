@@ -18,9 +18,14 @@
     padding: theme("padding.2") theme("padding.4");
   }
 
-  .card__footer--content {
-    padding-top: theme("padding.1");
-    padding-bottom: theme("padding.1");
+  .card__footer {
     display: flex;
+    align-items: flex-end;
+
+    & &--content {
+      padding-top: theme("padding.1");
+      padding-bottom: theme("padding.1");
+      display: flex;
+    }
   }
 }

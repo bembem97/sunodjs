@@ -15,7 +15,7 @@
     @apply relative overflow-hidden;
 
     & .collapse__item {
-      @apply pl-4 flex flex-col absolute bottom-0;
+      @apply pl-3 flex flex-col absolute bottom-0;
     }
   }
 

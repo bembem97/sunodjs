@@ -5,9 +5,9 @@
    version="1.1"
    id="svg850"
    width="200"
-   height="200"
-   viewBox="0 0 200 200"
-   sodipodi:docname="games.svg"
+   height="150"
+   viewBox="0 0 200 150"
+   sodipodi:docname="tech.svg"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,15 +24,16 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="2.595"
-     inkscape:cx="101.15607"
-     inkscape:cy="94.026975"
+     inkscape:zoom="1.8349421"
+     inkscape:cx="-38.965807"
+     inkscape:cy="97.550762"
      inkscape:window-width="1366"
-     inkscape:window-height="705"
+     inkscape:window-height="715"
      inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-y="22"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g856">
+     inkscape:current-layer="g856"
+     height="199px">
     <inkscape:grid
        type="xygrid"
        id="grid4368" />
@@ -42,7 +43,7 @@
      inkscape:label="Image"
      id="g856">
     <rect
-       style="fill:#241c1c;fill-opacity:0.104418;stroke:none;stroke-width:1.135;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill;opacity:1"
+       style="opacity:1;fill:#241c1c;fill-opacity:0.104418;stroke:none;stroke-width:1.135;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
        id="rect3022"
        width="18.159924"
        height="2.071291"
@@ -50,7 +51,7 @@
        y="131.06937" />
     <g
        id="g8189"
-       transform="matrix(1.6970621,0,0,1.6970621,-84.876117,-80.269303)">
+       transform="matrix(1.9260595,0,0,1.9260595,-109.13817,-125.09458)">
       <g
          id="g4045">
         <path

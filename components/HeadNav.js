@@ -10,8 +10,8 @@ const HeadNav = ({ className, ...props }) => {
   const media = useMediaQuery("lg", _, "max")
 
   return (
-    <header className="headnav">
-      <nav className="flex justify-center ">
+    <header className="headnav shadow-sm">
+      <nav className="flex justify-center bg-secondary">
         {/*// * SHOW NAV ICON WHEN VIEWPORT TO 1023 */}
         {media && <IconNav onClick={() => setOpen(true)} className="mr-auto" />}
 

@@ -4,18 +4,15 @@ import CollapseTitle from "components/shared/CollapseTitle"
 
 import NavLink from "./NavLink"
 
-import { useState, useEffect } from "react"
+import useSWR from "swr"
+
+const fetcher = (url) => fetch(url).then((f) => f.json())
 
 const SideNav = ({ className, ...props }) => {
-  const [reactAPI, setReactAPI] = useState([])
+  const { data, error } = useSWR("/api/tutorials", fetcher)
 
-  useEffect(() => {
-    fetch("/api/sidenav")
-      .then((res) => res.json())
-      .then((data) => setReactAPI(data))
-
-    return () => setReactAPI([])
-  }, [])
+  if (error) return "An error has occurred."
+  if (!data) return "Loading..."
 
   return (
     <nav
@@ -23,33 +20,26 @@ const SideNav = ({ className, ...props }) => {
       id="sidenav"
       className={`sidenav ${className || ""}`.trim()}
     >
-      <Collapse>
-        <CollapseTitle href={"/blog/react-api"}>
-          React JS API Hook Reference
-        </CollapseTitle>
-
-        <CollapseMenu>
-          {reactAPI.map((api) => (
-            <NavLink
-              key={api}
-              href={`/blog/react-api/${api}`}
-              className="hover:underline"
+      {data.map((category, i) => {
+        return (
+          <Collapse key={i}>
+            <CollapseTitle
+              href={category.path}
+              pathName={[category.path, category.child]}
             >
-              {api}
-            </NavLink>
-          ))}
-        </CollapseMenu>
-      </Collapse>
+              {category.categoryTitle}
+            </CollapseTitle>
 
-      <Collapse>
-        <CollapseTitle href={"/blog/css-tricks"}>CSS Tricks</CollapseTitle>
-
-        <CollapseMenu>
-          <span>a</span>
-          <span>b</span>
-          <span>c</span>
-        </CollapseMenu>
-      </Collapse>
+            <CollapseMenu>
+              {category.child.map((api, i) => (
+                <NavLink key={i} href={api} className="hover:underline">
+                  {category.topicTitle[i]}
+                </NavLink>
+              ))}
+            </CollapseMenu>
+          </Collapse>
+        )
+      })}
     </nav>
   )
 }

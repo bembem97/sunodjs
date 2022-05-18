@@ -1,9 +1,13 @@
 import { Collapsible } from "./Collapse"
 import { useRef, useContext, useEffect, useState } from "react"
 
+import useMediaQuery from "lib/hooks/useMediaQuery"
+
 const CollapseMenu = ({ children, className, ...props }) => {
   const [itemCollapse, _] = useContext(Collapsible)
-  const [itemHeight, setItemHeight] = useState(null)
+  const [itemHeight, setItemHeight] = useState(0)
+
+  const media = useMediaQuery("lg")
 
   const ref = useRef(null)
 
@@ -11,15 +15,17 @@ const CollapseMenu = ({ children, className, ...props }) => {
     const itemRef = ref.current
 
     itemCollapse ? setItemHeight(itemRef.scrollHeight) : setItemHeight(0)
-  }, [itemHeight, itemCollapse])
+  }, [itemHeight, itemCollapse, media])
 
   return (
     <div
-      className={`collapse__menu ${className || ""}`.trim()}
       {...props}
+      className={`collapse__menu border-l-gray-300 border border-transparent ml-1 ${
+        className || ""
+      }`.trim()}
       style={{ height: `${itemHeight}px` }}
     >
-      <div className={`collapse__item `.trim()} ref={ref}>
+      <div className={`collapse__item`.trim()} ref={ref}>
         {children}
       </div>
     </div>
