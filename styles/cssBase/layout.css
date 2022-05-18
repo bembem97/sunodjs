@@ -1,24 +1,21 @@
 @layer base {
   #wrapper {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "a a"
+      "a a";
 
     @media screen(lg) {
       gap: theme("gap.4");
-      grid-template-rows: 2fr auto;
-      grid-template-columns: theme("width.52") 1fr;
-      grid-template-areas:
-        "s a"
-        "s a";
-    }
-
-    @media screen(xl) {
-      grid-template-rows: 1fr auto;
-      grid-template-columns: theme("width.48") 1fr minmax(
-          auto,
-          theme("width.60")
+      grid-template-rows: repeat(2, auto);
+      grid-template-columns: theme("width.56") auto minmax(
+          theme("width.44"),
+          max-content
         );
-      grid-template-areas: "s a t";
+      grid-template-areas:
+        "s a t"
+        "s a t";
     }
   }
 

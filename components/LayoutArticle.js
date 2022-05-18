@@ -23,7 +23,7 @@ const LayoutArticle = ({ children, meta }) => {
     <>
       <MDXProvider components={shortcodes}>
         <LayoutBlog title={meta.title} Toc={Toc}>
-          <Container tag="article">
+          <article>
             {/* // * Contents */}
             <div id="content" className="flex flex-col gap-5">
               <Typography
@@ -41,7 +41,7 @@ const LayoutArticle = ({ children, meta }) => {
 
               {children}
             </div>
-          </Container>
+          </article>
         </LayoutBlog>
       </MDXProvider>
     </>

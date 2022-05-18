@@ -1,5 +1,5 @@
 @layer components {
-  article {
+  #wrapper {
     .toc {
       padding: theme("padding.2");
       position: sticky;
@@ -12,7 +12,7 @@
 
         counter-reset: toc;
         font-size: theme("fontSize.sm");
-        font-weight: theme("fontWeight.semibold");
+        /* font-weight: theme("fontWeight.semibold"); */
 
         li {
           &::before {

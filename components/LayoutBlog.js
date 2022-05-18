@@ -10,11 +10,13 @@ const LayoutBlog = ({ children, title, Toc, ...props }) => {
         <div id="wrapper">
           <SideNav />
 
-          <div id="article" className="w-screen sm:w-auto">
-            {children}
-          </div>
+          <div id="article">{children}</div>
 
-          <TableOfContents>{Toc ? <Toc /> : null}</TableOfContents>
+          {Toc ? (
+            <TableOfContents>
+              <Toc />
+            </TableOfContents>
+          ) : null}
         </div>
       </Layout>
     </>
