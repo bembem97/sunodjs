@@ -20,12 +20,12 @@ const ReactAPI = ({ data }) => {
 
         {/* //* BLOG LIST: <CARD /> */}
         {data.map((article, index) => {
-          const { title, date, excerpt } = article
+          const { title, excerpt } = article
 
           return (
             <React.Fragment key={index}>
               <Card className="bg-secondary shadow-md">
-                <CardHeader datePosted={date} className="ml-auto" />
+                <CardHeader className="ml-auto" />
                 <CardBody title={title} titleClassName="text-3xl">
                   {excerpt}
                 </CardBody>

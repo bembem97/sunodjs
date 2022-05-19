@@ -73,3 +73,23 @@ article ol {
 :root {
   scroll-padding-top: 70px;
 }
+
+/** TEST STYLES */
+#test {
+  display: grid;
+  grid-template-areas: "n m a";
+  grid-template-columns: theme("width.52") 1fr theme("width.52");
+  gap: 4px;
+
+  & nav {
+    grid-area: n;
+  }
+
+  & main {
+    grid-area: m;
+  }
+
+  & aside {
+    grid-area: a;
+  }
+}

@@ -29,21 +29,19 @@ const Layout = ({ children, title }) => {
       <Meta title={title} />
 
       <OpenModal.Provider value={[open, setOpen]}>
-        <div id="web">
-          <HeadNav />
+        <HeadNav />
 
-          {media && (
-            <Modal>
-              <SideNav />
-            </Modal>
-          )}
+        {media && (
+          <Modal>
+            <SideNav />
+          </Modal>
+        )}
 
-          <Container tag="main" id="main" className="pt-16 mx-auto">
-            {children}
-          </Container>
+        <Container tag="main" id="main" className="pt-16 mx-auto">
+          {children}
+        </Container>
 
-          <Footer className={"footer"} />
-        </div>
+        <Footer className={"footer"} />
       </OpenModal.Provider>
     </>
   )

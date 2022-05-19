@@ -2,7 +2,7 @@ const Footer = ({ className, ...props }) => {
   return (
     <footer
       id="footer"
-      className={`${className || ""} bg-emerald-50 py-10 mt-5`.trim()}
+      className={`${className || ""} py-10 mt-5`.trim()}
       {...props}
     >
       <div className="lg:max-w-5xl mx-auto px-3">

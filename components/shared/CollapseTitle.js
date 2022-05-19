@@ -1,13 +1,12 @@
 import IconNext from "./IconNext"
 import Button from "./Button"
-import NavLink from "components/NavLink"
 import Typography from "components/shared/Typography"
 import { Collapsible } from "./Collapse"
 
 import { useState, useContext, useEffect } from "react"
 import { useRouter } from "next/router"
 
-const CollapseTitle = ({ children, href, pathName }) => {
+const CollapseTitle = ({ children, pathName }) => {
   const [rotate, setRotation] = useState(null)
   const [_, setItemCollapse] = useContext(Collapsible)
 

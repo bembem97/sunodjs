@@ -14,18 +14,16 @@ const LayoutArticle = ({ children, meta }) => {
     h3: (props) => <Typography {...props} tag="h3" variant="h3" />,
     h4: (props) => <Typography {...props} tag="h4" variant="h4" />,
     p: (props) => <Typography {...props} tag="p" />,
-    blockquote: (props) => (
-      <Container {...props} tag="blockquote" className="table-of-contents" />
-    ),
+    pre: (props) => <pre {...props} />,
   }
 
   return (
     <>
       <MDXProvider components={shortcodes}>
         <LayoutBlog title={meta.title} Toc={Toc}>
-          <article>
+          <article className="px-2 lg:px-0">
             {/* // * Contents */}
-            <div id="content" className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5">
               <Typography
                 tag="h1"
                 className="mb-3 text-2xl lg:text-4xl"

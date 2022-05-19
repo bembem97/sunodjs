@@ -1,7 +1,6 @@
 @layer components {
   #wrapper {
     .toc {
-      padding: theme("padding.2");
       position: sticky;
       top: theme("padding.16");
 

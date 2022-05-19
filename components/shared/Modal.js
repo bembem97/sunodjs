@@ -2,6 +2,7 @@ import { useEffect, useState, useContext, useRef } from "react"
 import { createPortal } from "react-dom"
 
 import Button from "./Button"
+import IconPrev from "components/shared/IconPrev"
 
 import { OpenModal } from "lib/context"
 
@@ -19,7 +20,7 @@ const Modal = ({ children, ...props }) => {
   const getDarker = open ? "animate-get-darker" : ""
 
   // * Click the window to close modal
-  const closeThruWindow = () => {
+  const closeNav = () => {
     setTimer(true)
 
     setTimeout(() => {
@@ -40,17 +41,25 @@ const Modal = ({ children, ...props }) => {
       <div
         className={`overlay ${getDarker}`.trim()}
         ref={overlayRef}
-        onClick={closeThruWindow}
+        onClick={closeNav}
       ></div>
 
-      <Button onClick={() => setOpen(false)}>&times;</Button>
+      {/* <Button onClick={() => setOpen(false)}>&times;</Button> */}
 
       <div
         className={`content ${sidenavSlideFx} ${
           timer && "animate-slide-to-left"
         }`.trim()}
       >
-        {children}
+        <div className="flex flex-col">
+          <button
+            onClick={closeNav}
+            className="flex justify-end py-5 pr-10 transition-colors bg-inherit active:bg-gray-200"
+          >
+            <IconPrev />
+          </button>
+          {children}
+        </div>
       </div>
     </div>
   )

@@ -8,9 +8,9 @@
 
     @media screen(lg) {
       gap: theme("gap.4");
-      grid-template-rows: repeat(2, auto);
-      grid-template-columns: theme("width.56") auto minmax(
-          theme("width.44"),
+      grid-template-rows: 1fr;
+      grid-template-columns: minmax(min-content, theme("width.48")) 1fr minmax(
+          min-content,
           max-content
         );
       grid-template-areas:
