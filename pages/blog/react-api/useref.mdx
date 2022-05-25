@@ -4,13 +4,15 @@ author: Vinz
 date: May 9, 2022
 api: useRef()
 excerpt: Consectetur voluptate sunt magna irure commodo Lorem ad reprehenderit mollit tempor irure labore pariatur.
+image: "/articles/react-hooks.jpg"
 ---
 
-import Container from "components/shared/Container"
 import Alert from "components/shared/Alert"
-import TableOfContents from "components/page/TableOfContents"
+import Container from "components/shared/Container"
+import TableListItem from "components/shared/tableOfContents/TableListItem"
+import TableLists from "components/shared/tableOfContents/TableLists"
+import LayoutArticle from "components/layout/LayoutArticle"
 
-import LayoutArticle from "components/LayoutArticle"
 import {
   ClickCounter,
   Stopwatch,
@@ -20,58 +22,49 @@ import {
   ExposeRefToComponent,
 } from "components/page/useref"
 
-import { Link } from "components/LayoutArticle.js"
-
 export const meta = {
   title: title,
   author: author,
   date: date,
   Toc: () => (
-    <ol>
-      <li>
-        <a href="#referencing-a-value-with-a-ref">
-          Referencing a value with a ref
-        </a>
-        <ol>
-          <li>
-            <a href="#click-counter">Click counter</a>
-          </li>
-          <li>
-            <a href="#stopwatch">Stopwatch</a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#manipulating-the-dom-with-a-ref">
-          Manipulating the DOM with a ref
-        </a>
-        <ol>
-          <li>
-            <a href="#focusing-a-text-input">Focusing a text input</a>
-          </li>
-          <li>
-            <a href="#scrolling-an-image-into-view">
-              Scrolling an image into view
-            </a>
-          </li>
-          <li>
-            <a href="#playing-and-pausing-a-video">
-              Playing and pausing a video
-            </a>
-          </li>
-          <li>
-            <a href="#exposing-a-ref-to-your-own-component">
-              Exposing a ref to your own component
-            </a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#avoiding-recreating-the-ref-contents">
-          Avoiding recreating the ref contents
-        </a>
-      </li>
-    </ol>
+    <TableLists>
+      <TableListItem
+        jumpTo="referencing-a-value-with-a-ref"
+        title="Referencing a value with a ref"
+      >
+        <TableLists>
+          <TableListItem jumpTo="click-counter" title="Click counter" />
+          <TableListItem jumpTo="stopwatch" title="Stopwatch" />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="manipulating-the-dom-with-a-ref"
+        title="Manipulating the DOM with a ref"
+      >
+        <TableLists>
+          <TableListItem
+            jumpTo="focusing-a-text-input"
+            title="Focusing a text input"
+          />
+          <TableListItem
+            jumpTo="scrolling-an-image-into-view"
+            title="Scrolling an image into view"
+          />
+          <TableListItem
+            jumpTo="playing-and-pausing-a-video"
+            title="Playing and pausing a video"
+          />
+          <TableListItem
+            jumpTo="exposing-a-ref-to-your-own-component"
+            title="Exposing a ref to your own component"
+          />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="avoiding-recreating-the-ref-contents"
+        title="Avoiding recreating the ref contents"
+      />
+    </TableLists>
   ),
 }
 

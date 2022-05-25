@@ -1,46 +1,48 @@
-import IconNext from "./IconNext"
+// import IconNext from "./IconNext"
 import Button from "./Button"
 import Typography from "components/shared/Typography"
-import { Collapsible } from "./Collapse"
+// import { Collapsible } from "lib/context"
 
-import { useState, useContext, useEffect } from "react"
-import { useRouter } from "next/router"
+// import { useState, useContext, useEffect } from "react"
+// import { useRouter } from "next/router"
 
-const CollapseTitle = ({ children, pathName }) => {
-  const [rotate, setRotation] = useState(null)
-  const [_, setItemCollapse] = useContext(Collapsible)
+const CollapseTitle = ({ children, categoryPath, articlesPath }) => {
+  // const [rotate, setRotation] = useState(null)
+  // const [_, setItemCollapse] = useContext(Collapsible)
 
-  const { pathname } = useRouter()
+  // const { asPath } = useRouter()
 
-  const url = new URL(pathname, location.href)
-  const filtered = pathName[1].filter((path) => path === pathname)
+  // const url = new URL(asPath, location.href)
 
-  useEffect(() => {
-    setItemCollapse(rotate)
-  }, [rotate, setItemCollapse])
+  // const filtered = articlesPath.filter((path) => path === asPath)
+  // const articlePath = filtered[0]
 
-  useEffect(
-    () =>
-      (url.pathname === pathName[0] || filtered[0] === pathname) && (
-        <>
-          {setItemCollapse(true)}
-          {setRotation(true)}
-        </>
-      ),
-    []
-  )
+  // useEffect(() => {
+  //   setItemCollapse(rotate)
+  // }, [rotate, setItemCollapse])
+
+  // useEffect(
+  //   () =>
+  //     (url.pathname === categoryPath || articlePath === asPath) && (
+  //       <>
+  //         {setItemCollapse(true)}
+  //         {setRotation(true)}
+  //       </>
+  //     ),
+  //   []
+  // )
 
   return (
     <div className="collapse__title flex p-1 pl-0">
-      <Button
+      <span
         className="flex items-center py-0 gap-4 pl-0"
-        onClick={() => setRotation(!rotate)}
+        // onClick={() => setRotation(!rotate)}
       >
         <Typography tag="span" className={`font-semibold`.trim()}>
           {children}
         </Typography>
-        <IconNext rotate={rotate} />
-      </Button>
+        {/* <IconNext rotate={rotate} /> */}
+      </span>
     </div>
   )
 }

@@ -4,13 +4,15 @@ author: Benny
 date: April 25, 2022
 api: useContext()
 excerpt: Tempor incididunt quis esse pariatur est. Nulla exercitation incididunt quis excepteur ullamco sunt aute adipisicing.
+image: "/articles/react-hooks.jpg"
 ---
 
-import Container from "components/shared/Container"
-import LayoutArticle from "components/LayoutArticle"
 import Alert from "components/shared/Alert"
+import Container from "components/shared/Container"
+import TableListItem from "components/shared/tableOfContents/TableListItem"
+import TableLists from "components/shared/tableOfContents/TableLists"
+import LayoutArticle from "components/layout/LayoutArticle"
 
-import { Link } from "components/LayoutArticle.js"
 import {
   UpdateThemeViaContext,
   UpdateObjViaContext,
@@ -26,59 +28,49 @@ export const meta = {
   author: author,
   date: date,
   Toc: () => (
-    <ol>
-      <li>
-        <a href="#passing-data-deeply-into-the-tree">
-          Passing data deeply into the tree
-        </a>
-        <ol>
-          <li>
-            <a href="#setting-theme-to-dark">Setting theme to dark</a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#updating-data-passed-via-context">
-          Updating data passed via context
-        </a>
-        <ol>
-          <li>
-            <a href="#logging-in">Logging in</a>
-          </li>
-          <li>
-            <a href="#toggle-theme">Toggle theme</a>
-          </li>
-          <li>
-            <a href="#multiple-context">Multiple context</a>
-          </li>
-          <li>
-            <a href="#extracting-providers-to-a-component">
-              Extracting providers to a component
-            </a>
-          </li>
-          <li>
-            <a href="#scaling-up-with-context-and-a-reducer">
-              Scaling up with context and a reducer
-            </a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#specifying-a-fallback-default-value">
-          Specifying a fallback default value
-        </a>
-      </li>
-      <li>
-        <a href="#overriding-context-for-a-part-of-the-tree">
-          Overriding context for a part of the tree
-        </a>
-      </li>
-      <li>
-        <a href="#optimizing-re-renders-when-passing-objects-and-functions">
-          Optimizing re-renders when passing objects and functions
-        </a>
-      </li>
-    </ol>
+    <TableLists>
+      <TableListItem
+        jumpTo="passing-data-deeply-into-the-tree"
+        title="Passing data deeply into the tree"
+      >
+        <TableLists>
+          <TableListItem
+            jumpTo="setting-theme-to-dark"
+            title="Setting theme to dark"
+          />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="updating-data-passed-via-context"
+        title="Updating data passed via context"
+      >
+        <TableLists>
+          <TableListItem jumpTo="logging-in" title="Logging in" />
+          <TableListItem jumpTo="toggle-theme" title="Toggle theme" />
+          <TableListItem jumpTo="multiple-context" title="Multiple context" />
+          <TableListItem
+            jumpTo="extracting-providers-to-a-component"
+            title="Extracting providers to a component"
+          />
+          <TableListItem
+            jumpTo="scaling-up-with-context-and-a-reducer"
+            title="Scaling up with context and a reducer"
+          />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="specifying-a-fallback-default-value"
+        title="Specifying a fallback default value"
+      />
+      <TableListItem
+        jumpTo="overriding-context-for-a-part-of-the-tree"
+        title="Overriding context for a part of the tree"
+      />
+      <TableListItem
+        jumpTo="optimizing-re-renders-when-passing-objects-and-functions"
+        title="Optimizing re-renders when passing objects and functions"
+      />
+    </TableLists>
   ),
 }
 

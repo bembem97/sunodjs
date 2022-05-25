@@ -4,26 +4,26 @@ author: Bembem
 date: April 24, 2022
 api: createContext()
 excerpt: Sunt consectetur laborum duis in labore veniam voluptate cupidatat incididunt in adipisicing dolore in.
+image: "/articles/react-hooks.jpg"
 ---
 
 import Container from "components/shared/Container"
-import LayoutArticle from "components/LayoutArticle"
+import TableListItem from "components/shared/tableOfContents/TableListItem"
+import TableLists from "components/shared/tableOfContents/TableLists"
+import LayoutArticle from "components/layout/LayoutArticle"
 
 export const meta = {
   title: title,
   author: author,
   date: date,
   Toc: () => (
-    <ol>
-      <li>
-        <a href="#creating-context">Creating context</a>
-      </li>
-      <li>
-        <a href="#importing-and-exporting-context-from-a-file">
-          Importing and exporting context from a file
-        </a>
-      </li>
-    </ol>
+    <TableLists>
+      <TableListItem jumpTo="creating-context" title="Creating context" />
+      <TableListItem
+        jumpTo="importing-and-exporting-context-from-a-file"
+        title="Importing and exporting context from a file"
+      />
+    </TableLists>
   ),
 }
 
@@ -131,15 +131,6 @@ Et ea ullamco ipsum cillum officia ut ex.
 
 Deserunt quis cupidatat et nulla officia adipisicing laborum. Irure irure mollit minim cillum duis labore ad duis qui. Incididunt occaecat minim ut excepteur excepteur. Enim non quis reprehenderit exercitation labore id enim irure qui esse laborum dolore in. Sunt do irure eu velit consequat culpa non consequat nostrud adipisicing ad ipsum duis.
 
-export default ({ children, data }) => (
-  <LayoutArticle meta={meta} data={data}>
-    {children}
-  </LayoutArticle>
+export default ({ children }) => (
+  <LayoutArticle meta={meta}>{children}</LayoutArticle>
 )
-
-import { getSortedPostsData } from "lib/posts"
-
-export async function getStaticProps() {
-  const data = getSortedPostsData()
-  return { props: { data } }
-}

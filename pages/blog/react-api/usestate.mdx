@@ -4,10 +4,13 @@ author: Vember
 date: May 12, 2022
 api: useState()
 excerpt: Aliqua tempor dolor Lorem reprehenderit ex occaecat officia deserunt commodo reprehenderit.
+image: "/articles/react-hooks.jpg"
 ---
 
 import Container from "components/shared/Container"
-import LayoutArticle from "components/LayoutArticle.js"
+import TableListItem from "components/shared/tableOfContents/TableListItem"
+import TableLists from "components/shared/tableOfContents/TableLists"
+import LayoutArticle from "components/layout/LayoutArticle.js"
 
 import {
   Checkbox,
@@ -30,83 +33,70 @@ export const meta = {
   author: author,
   date: date,
   Toc: () => (
-    <ol>
-      <li>
-        <a href="#adding-state-to-a-component">Adding state to a component</a>
-        <ol>
-          <li>
-            <a href="#counter">Counter</a>
-          </li>
-          <li>
-            <a href="#textfield">Textfield</a>
-          </li>
-          <li>
-            <a href="#checkbox">Checkbox</a>
-          </li>
-          <li>
-            <a href="#form">Form</a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#updating-state-based-on-the-previous-state">
-          Updating state based on the previous state
-        </a>
-        <ol>
-          <li>
-            <a href="#passing-the-updater-function">
-              Passing the updater function
-            </a>
-          </li>
-          <li>
-            <a href="#passing-the-next-state-directly">
-              Passing the next state directly
-            </a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#updating-objects-and-arrays-in-state">
-          Updating objects and arrays in state
-        </a>
-        <ol>
-          <li>
-            <a href="#form-object">Form (object)</a>
-          </li>
-          <li>
-            <a href="#form-nested-object">Form (nested object)</a>
-          </li>
-          <li>
-            <a href="#list-array">List (array)</a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#avoiding-recreating-the-initial-state">
-          Avoiding recreating the initial state
-        </a>
-        <ol>
-          <li>
-            <a href="#passing-the-initializer-function">
-              Passing the initializer function
-            </a>
-          </li>
-          <li>
-            <a href="#passing-the-initial-state-directly">
-              Passing the initial state directly
-            </a>
-          </li>
-        </ol>
-      </li>
-      <li>
-        <a href="#resetting-state-with-a-key">Resetting state with a key</a>
-      </li>
-      <li>
-        <a href="#storing-information-from-previous-renders">
-          Storing information from previous renders
-        </a>
-      </li>
-    </ol>
+    <TableLists>
+      <TableListItem
+        jumpTo="adding-state-to-a-component"
+        title="Adding state to a component"
+      >
+        <TableLists>
+          <TableListItem jumpTo="counter" title="Counter" />
+          <TableListItem jumpTo="textfield" title="Textfield" />
+          <TableListItem jumpTo="checkbox" title="Checkbox" />
+          <TableListItem jumpTo="form" title="Form" />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="updating-state-based-on-the-previous-state"
+        title="Updating state based on the previous state"
+      >
+        <TableLists>
+          <TableListItem
+            jumpTo="passing-the-updater-function"
+            title="Passing the updater function"
+          />
+          <TableListItem
+            jumpTo="passing-the-next-state-directly"
+            title="Passing the next state directly"
+          />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="updating-objects-and-arrays-in-state"
+        title="Updating objects and arrays in state"
+      >
+        <TableLists>
+          <TableListItem jumpTo="form-object" title="Form (object)" />
+          <TableListItem
+            jumpTo="form-nested-object"
+            title="Form (nested object)"
+          />
+          <TableListItem jumpTo="list-array" title="List (array)" />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="avoiding-recreating-the-initial-state"
+        title="Avoiding recreating the initial state"
+      >
+        <TableLists>
+          <TableListItem
+            jumpTo="passing-the-initializer-function"
+            title="Passing the initializer function"
+          />
+          <TableListItem
+            jumpTo="passing-the-initial-state-directly"
+            title="Passing the initial state directly"
+          />
+        </TableLists>
+      </TableListItem>
+      <TableListItem
+        jumpTo="resetting-state-with-a-key"
+        title="Resetting state with a key"
+      />
+      <TableListItem
+        jumpTo="storing-information-from-previous-renders"
+        title="Storing information from previous renders"
+      />
+    </TableLists>
   ),
 }
 
@@ -166,8 +156,6 @@ function handleClick() {
   setName("Bembem")
 }
 ```
-
-<h2>Henlo Wold</h2>
 
 #### Counter
 

@@ -6,7 +6,7 @@ export default function handler(req, res) {
   const data = getCategoryData()
 
   const categories = Array.from(data, (data) => {
-    const category = data.files.replace(/\.js$/, "")
+    const category = data.files.file.replace(/\.js$/, "")
     const topic = data.topics.map(
       (file) => "/blog/" + category + "/" + file.replace(/\.mdx$/, "")
     )

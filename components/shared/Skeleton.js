@@ -4,7 +4,9 @@ const Skeleton = ({ children, className, ...props }) => {
   const child = Children.only(children)
   const skeletonStyles = `animate-pulse ${className}`
 
-  return cloneElement(<section>{child}</section>, {
+  const section = <section>{child}</section>
+
+  return cloneElement(section, {
     className: skeletonStyles,
   })
 }

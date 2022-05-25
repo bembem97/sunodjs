@@ -1,2 +1,5 @@
 @layer components {
+  /* .my-wrapper {
+    @apply bg-red-500/25 text-green-300 h-96 !important;
+  } */
 }

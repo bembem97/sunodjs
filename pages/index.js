@@ -2,25 +2,20 @@ import Image from "next/image"
 import React from "react"
 import Link from "next/link"
 
-import Layout from "components/Layout"
-import Container from "components/shared/Container"
+import Layout from "components/layout/Layout"
+import Button from "components/shared/Button"
 import Card from "components/shared/Card"
 import CardBody from "components/shared/CardBody"
 import CardFooter from "components/shared/CardFooter"
-import Button from "components/shared/Button"
+import Container from "components/shared/Container"
 import Typography from "components/shared/Typography"
 
-export default function Home() {
+export default function Home({ metadata }) {
   return (
     <Layout title="Home">
       <Container className="mx-auto lg:max-w-5xl px-3 h-full flex flex-col gap-5">
-        {/* // * Frontpage Title */}
-        <Typography variant="h1" className="my-8">
-          Veniam irure.
-        </Typography>
-
         {/* // * Frontpage Card */}
-        <Container className="flex gap-10 flex-wrap">
+        <Container className="flex gap-4 flex-wrap">
           <Card className="bg-secondary shadow-md grow basis-60">
             <CardBody title="React JS API Reference">
               Sit in nisi labore commodo mollit in dolore nulla reprehenderit.
@@ -64,7 +59,6 @@ export default function Home() {
         </Container>
 
         {/* // * Frontpage Fake Text */}
-
         <Typography variant="h2">
           Ut proident sint fugiat nostrud mollit non id?
         </Typography>
@@ -137,7 +131,7 @@ export default function Home() {
                 />
               </Container>
               <Container className="flex items-center">
-                <Typography className="p-4 text-black bg-secondary shadow-md">
+                <Typography className="p-4 text-black shadow-md">
                   Amet nostrud magna aliquip irure consequat minim. Fugiat nulla
                   elit adipisicing ipsum aliquip. Aliqua proident fugiat esse
                   incididunt nostrud cillum sunt sint dolore Lorem elit. Laboris
@@ -153,4 +147,12 @@ export default function Home() {
       </Container>
     </Layout>
   )
+}
+
+import { getFileContent } from "lib/posts"
+
+export function getStaticProps() {
+  const metadata = getFileContent("react-api")
+
+  return { props: { metadata } }
 }

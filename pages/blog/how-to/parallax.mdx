@@ -1,0 +1,25 @@
+---
+title: Parallax
+author: Bembem
+date: 1 January 1970
+excerpt: Magna qui nulla et qui amet duis labore excepteur aute est ipsum.
+---
+
+import LayoutArticle from "components/layout/LayoutArticle"
+import { ParallaxCSSOnly } from "components/page/parallax"
+
+export const meta = {
+  title,
+  date,
+  author,
+}
+
+Magna aliqua minim dolore consectetur do ut ullamco nostrud nostrud.
+
+Sit do ut reprehenderit magna proident nisi non. Adipisicing eiusmod esse cillum pariatur. In consectetur ex ex amet ea consequat velit. Adipisicing quis ipsum id commodo ea aliquip sit in quis id qui occaecat mollit non. Mollit laborum ea laboris ipsum. Lorem ullamco aliqua mollit id consequat id eiusmod ullamco. Est velit in aliquip sit cillum elit dolor nisi culpa aliqua deserunt velit ex. Magna labore non et ut elit ipsum non mollit voluptate et sunt occaecat minim. Commodo cupidatat sit enim fugiat dolore ipsum est ea in minim cupidatat culpa excepteur. Exercitation non in nulla esse consequat anim qui ex nostrud nulla ea velit. Nostrud Lorem amet Lorem enim ipsum consectetur adipisicing veniam non.
+
+<ParallaxCSSOnly />
+
+export default ({ children }) => (
+  <LayoutArticle meta={meta}>{children}</LayoutArticle>
+)

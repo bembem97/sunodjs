@@ -12,10 +12,11 @@
 
   .collapse__menu {
     transition: height 150ms;
-    @apply relative overflow-hidden;
+    /* @apply relative overflow-hidden; */
 
     & .collapse__item {
-      @apply pl-3 flex flex-col absolute bottom-0;
+      /* temporarily removed "absolute" property */
+      @apply pl-1 flex flex-col bottom-0;
     }
   }
 

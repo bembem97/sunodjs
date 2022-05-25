@@ -1,5 +1,4 @@
-import Container from "./shared/Container"
-import Typography from "./shared/Typography"
+import Typography from "components/shared/Typography"
 import LayoutBlog from "./LayoutBlog"
 
 import React from "react"
@@ -21,24 +20,19 @@ const LayoutArticle = ({ children, meta }) => {
     <>
       <MDXProvider components={shortcodes}>
         <LayoutBlog title={meta.title} Toc={Toc}>
-          <article className="px-2 lg:px-0">
+          <article className="px-4 lg:px-0 flex flex-col gap-1">
             {/* // * Contents */}
-            <div className="flex flex-col gap-5">
-              <Typography
-                tag="h1"
-                className="mb-3 text-2xl lg:text-4xl"
-                variant="h1"
-              >
-                {meta.title}
-              </Typography>
 
-              <Typography className="sub flex flex-wrap gap-1">
-                <span className="break-words">by {meta.author}</span>
-                <span> &#8212; {meta.date}</span>
-              </Typography>
+            <Typography tag="h1" className="text-2xl lg:text-4xl" variant="h1">
+              {meta.title}
+            </Typography>
 
-              {children}
-            </div>
+            <Typography className="sub flex flex-wrap gap-1">
+              <span className="break-words">by {meta.author}</span>
+              <span> &#8212; {meta.date}</span>
+            </Typography>
+
+            {children}
           </article>
         </LayoutBlog>
       </MDXProvider>

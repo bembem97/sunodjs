@@ -1,6 +1,5 @@
-import { createContext, useState } from "react"
-
-export const Collapsible = createContext(null)
+import { useState } from "react"
+import { Collapsible } from "lib/context"
 
 const Collapse = ({ children, ...props }) => {
   const [itemCollapse, setItemCollapse] = useState(null)

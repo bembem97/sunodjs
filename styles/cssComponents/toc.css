@@ -1,5 +1,5 @@
 @layer components {
-  #wrapper {
+  .wrapper {
     .toc {
       position: sticky;
       top: theme("padding.16");
@@ -11,10 +11,9 @@
 
         counter-reset: toc;
         font-size: theme("fontSize.sm");
-        /* font-weight: theme("fontWeight.semibold"); */
 
         li {
-          &::before {
+          & a::before {
             counter-increment: toc;
             content: counters(toc, ".") " ";
           }
@@ -25,5 +24,9 @@
         }
       }
     }
+  }
+
+  .toc-box > ol {
+    padding-left: theme("padding.2");
   }
 }

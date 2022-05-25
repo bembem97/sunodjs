@@ -10,10 +10,11 @@ const Editor = ({ files, ...props }) => {
       files={files}
       theme="github-light"
       options={{
+        showLineNumbers: true,
+        editorHeight: 350,
         autorun: false,
         classes: {
-          "sp-wrapper": "custom-wrapper",
-          "sp-button": "custom-button",
+          "sp-button": "!bg-amber-600 hover:!bg-amber-700 !text-amber-50",
         },
       }}
       {...props}

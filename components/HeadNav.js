@@ -1,6 +1,7 @@
 import IconNav from "components/shared/IconNav"
-import useMediaQuery from "lib/hooks/useMediaQuery"
 import NavLinkActive from "./NavLinkActive"
+
+import useMediaQuery from "lib/hooks/useMediaQuery"
 import { OpenModal } from "lib/context"
 
 import { useRouter } from "next/router"
@@ -23,7 +24,7 @@ const HeadNav = ({ className, ...props }) => {
 
         <div className="flex flex-center grow justify-center">
           <NavLinkActive
-            activeClassName={"text-tertiary border-b-tertiary"}
+            activeClassName={"text-purple-700 border-b-tertiary"}
             href="/"
             path={asPath}
             className={navlink}
@@ -32,7 +33,7 @@ const HeadNav = ({ className, ...props }) => {
           </NavLinkActive>
 
           <NavLinkActive
-            activeClassName={"text-tertiary border-b-tertiary"}
+            activeClassName={"text-purple-700 border-b-tertiary"}
             href="/blog"
             path={asPath}
             className={navlink}

@@ -1,13 +1,13 @@
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
 
-import HeadNav from "./HeadNav"
-import Meta from "./Meta"
-import SideNav from "./SideNav"
-import Footer from "./Footer"
+import HeadNav from "components/HeadNav"
+import Meta from "components/Meta"
+import SideNav from "components/SideNav"
+import Footer from "components/Footer"
 
-import Container from "./shared/Container"
-import Modal from "./shared/Modal"
+import Container from "components/shared/Container"
+import Modal from "components/shared/Modal"
 
 import { OpenModal } from "lib/context"
 import useMediaQuery from "lib/hooks/useMediaQuery"
@@ -37,7 +37,7 @@ const Layout = ({ children, title }) => {
           </Modal>
         )}
 
-        <Container tag="main" id="main" className="pt-16 mx-auto">
+        <Container tag="main" id="main" className="pt-16 mx-auto xl:container">
           {children}
         </Container>
 
