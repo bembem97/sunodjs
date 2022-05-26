@@ -18,7 +18,7 @@ export default function handler(req, res) {
     return {
       path: "/blog/" + category,
       child: topic,
-      categoryTitle,
+      categoryTitle: categoryTitle.replace(/[-]/g, " "),
       topicTitle,
     }
   })

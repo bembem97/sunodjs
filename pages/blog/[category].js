@@ -13,7 +13,7 @@ export default function Category({ page, frontmatter }) {
   const metadata = frontmatter[0]
 
   return (
-    <LayoutBlog title={page[0].title}>
+    <LayoutBlog title={pageName.title}>
       <Container className="px-2 mb-3 rounded flex flex-col gap-5 lg:pr-20">
         <Typography variant="h2" className="capitalize">
           {pageName.title}
@@ -59,9 +59,11 @@ import { getCategoryDir, getFileContent } from "lib/posts"
 export function getStaticPaths() {
   const categories = getCategoryDir()
 
-  const paths = categories.map((category) => ({
-    params: { category: category.file.toString() },
-  }))
+  const paths = categories.map((category) => {
+    return {
+      params: { category: category.file.toString() },
+    }
+  })
 
   return { paths, fallback: false }
 }

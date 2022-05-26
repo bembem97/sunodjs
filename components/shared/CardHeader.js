@@ -12,7 +12,7 @@ const CardHeader = (
       >
         {/* //*: THUMBNAIL */}
         {thumbnail && (
-          <div className="card__thumbnail pt-3 bg-emerald-100">
+          <div className="card__thumbnail bg-emerald-100">
             <Image
               src={thumbnail}
               alt="thumbnail"
